@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.4.0"
+  },
+  "applications": {
+    "Union": {
+      "applicationId": "4H8aThaVBURMW1iTAqR7AMdqbJ5K2sX1tawYyHXl",
+      "masterKey": "HZ9shyOdD9sF41YXhIexQ4mjzoxYBQlcEOHlPmWd"
+    },
+    "_default": {
+      "link": "Union"
+    }
+  }
+}
