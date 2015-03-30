@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BCF997BA1AC9DCD300D38FF9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997B91AC9DCD300D38FF9 /* main.m */; };
+		BCF997BD1AC9DCD300D38FF9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997BC1AC9DCD300D38FF9 /* AppDelegate.m */; };
+		BCF997C01AC9DCD300D38FF9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997BF1AC9DCD300D38FF9 /* ViewController.m */; };
+		BCF997C31AC9DCD400D38FF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF997C11AC9DCD400D38FF9 /* Main.storyboard */; };
+		BCF997C51AC9DCD400D38FF9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCF997C41AC9DCD400D38FF9 /* Images.xcassets */; };
+		BCF997C81AC9DCD400D38FF9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF997C61AC9DCD400D38FF9 /* LaunchScreen.xib */; };
+		BCF997D41AC9DCD400D38FF9 /* union_1776_capstoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997D31AC9DCD400D38FF9 /* union_1776_capstoneTests.m */; };
+		BCF997DE1AC9DD1400D38FF9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997DD1AC9DD1400D38FF9 /* Parse.framework */; };
+		BCF997E01AC9DD2100D38FF9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997DF1AC9DD2100D38FF9 /* Bolts.framework */; };
+		BCF997E21AC9DD5400D38FF9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997E11AC9DD5400D38FF9 /* AudioToolbox.framework */; };
+		BCF997E41AC9DD5900D38FF9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997E31AC9DD5900D38FF9 /* CFNetwork.framework */; };
+		BCF997E61AC9DD5F00D38FF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997E51AC9DD5F00D38FF9 /* CoreGraphics.framework */; };
+		BCF997E81AC9DD6400D38FF9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997E71AC9DD6400D38FF9 /* CoreLocation.framework */; };
+		BCF997EA1AC9DD6A00D38FF9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997E91AC9DD6A00D38FF9 /* MobileCoreServices.framework */; };
+		BCF997EC1AC9DD7400D38FF9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997EB1AC9DD7400D38FF9 /* QuartzCore.framework */; };
+		BCF997EE1AC9DD7B00D38FF9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997ED1AC9DD7B00D38FF9 /* Security.framework */; };
+		BCF997F01AC9DD8000D38FF9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997EF1AC9DD8000D38FF9 /* StoreKit.framework */; };
+		BCF997F21AC9DD8900D38FF9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997F11AC9DD8900D38FF9 /* SystemConfiguration.framework */; };
+		BCF997F41AC9DD9200D38FF9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997F31AC9DD9200D38FF9 /* libz.dylib */; };
+		BCF997F61AC9DD9B00D38FF9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997F51AC9DD9B00D38FF9 /* libsqlite3.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BCF997CE1AC9DCD400D38FF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCF997AC1AC9DCD300D38FF9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCF997B31AC9DCD300D38FF9;
+			remoteInfo = "union-1776-capstone";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BCF997B41AC9DCD300D38FF9 /* union-1776-capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "union-1776-capstone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCF997B81AC9DCD300D38FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF997B91AC9DCD300D38FF9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BCF997BB1AC9DCD300D38FF9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BCF997BC1AC9DCD300D38FF9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BCF997BE1AC9DCD300D38FF9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BCF997BF1AC9DCD300D38FF9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BCF997C21AC9DCD400D38FF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BCF997C41AC9DCD400D38FF9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BCF997C71AC9DCD400D38FF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BCF997CD1AC9DCD400D38FF9 /* union-1776-capstoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "union-1776-capstoneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCF997D21AC9DCD400D38FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF997D31AC9DCD400D38FF9 /* union_1776_capstoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = union_1776_capstoneTests.m; sourceTree = "<group>"; };
+		BCF997DD1AC9DD1400D38FF9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		BCF997DF1AC9DD2100D38FF9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		BCF997E11AC9DD5400D38FF9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BCF997E31AC9DD5900D38FF9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BCF997E51AC9DD5F00D38FF9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BCF997E71AC9DD6400D38FF9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BCF997E91AC9DD6A00D38FF9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		BCF997EB1AC9DD7400D38FF9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BCF997ED1AC9DD7B00D38FF9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BCF997EF1AC9DD8000D38FF9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		BCF997F11AC9DD8900D38FF9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BCF997F31AC9DD9200D38FF9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BCF997F51AC9DD9B00D38FF9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BCF997B11AC9DCD300D38FF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF997F61AC9DD9B00D38FF9 /* libsqlite3.dylib in Frameworks */,
+				BCF997F41AC9DD9200D38FF9 /* libz.dylib in Frameworks */,
+				BCF997F21AC9DD8900D38FF9 /* SystemConfiguration.framework in Frameworks */,
+				BCF997F01AC9DD8000D38FF9 /* StoreKit.framework in Frameworks */,
+				BCF997EE1AC9DD7B00D38FF9 /* Security.framework in Frameworks */,
+				BCF997EC1AC9DD7400D38FF9 /* QuartzCore.framework in Frameworks */,
+				BCF997EA1AC9DD6A00D38FF9 /* MobileCoreServices.framework in Frameworks */,
+				BCF997E81AC9DD6400D38FF9 /* CoreLocation.framework in Frameworks */,
+				BCF997E61AC9DD5F00D38FF9 /* CoreGraphics.framework in Frameworks */,
+				BCF997E41AC9DD5900D38FF9 /* CFNetwork.framework in Frameworks */,
+				BCF997E21AC9DD5400D38FF9 /* AudioToolbox.framework in Frameworks */,
+				BCF997DE1AC9DD1400D38FF9 /* Parse.framework in Frameworks */,
+				BCF997E01AC9DD2100D38FF9 /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCF997CA1AC9DCD400D38FF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BCF997AB1AC9DCD300D38FF9 = {
+			isa = PBXGroup;
+			children = (
+				BCF997B61AC9DCD300D38FF9 /* union-1776-capstone */,
+				BCF997D01AC9DCD400D38FF9 /* union-1776-capstoneTests */,
+				BCF997B51AC9DCD300D38FF9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BCF997B51AC9DCD300D38FF9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCF997B41AC9DCD300D38FF9 /* union-1776-capstone.app */,
+				BCF997CD1AC9DCD400D38FF9 /* union-1776-capstoneTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCF997B61AC9DCD300D38FF9 /* union-1776-capstone */ = {
+			isa = PBXGroup;
+			children = (
+				BCF997BB1AC9DCD300D38FF9 /* AppDelegate.h */,
+				BCF997BC1AC9DCD300D38FF9 /* AppDelegate.m */,
+				BCF997BE1AC9DCD300D38FF9 /* ViewController.h */,
+				BCF997BF1AC9DCD300D38FF9 /* ViewController.m */,
+				BCF997C11AC9DCD400D38FF9 /* Main.storyboard */,
+				BCF997C41AC9DCD400D38FF9 /* Images.xcassets */,
+				BCF997C61AC9DCD400D38FF9 /* LaunchScreen.xib */,
+				BCF997F71AC9DDB400D38FF9 /* Libraries */,
+				BCF997B71AC9DCD300D38FF9 /* Supporting Files */,
+			);
+			path = "union-1776-capstone";
+			sourceTree = "<group>";
+		};
+		BCF997B71AC9DCD300D38FF9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BCF997B81AC9DCD300D38FF9 /* Info.plist */,
+				BCF997B91AC9DCD300D38FF9 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BCF997D01AC9DCD400D38FF9 /* union-1776-capstoneTests */ = {
+			isa = PBXGroup;
+			children = (
+				BCF997D31AC9DCD400D38FF9 /* union_1776_capstoneTests.m */,
+				BCF997D11AC9DCD400D38FF9 /* Supporting Files */,
+			);
+			path = "union-1776-capstoneTests";
+			sourceTree = "<group>";
+		};
+		BCF997D11AC9DCD400D38FF9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BCF997D21AC9DCD400D38FF9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BCF997F71AC9DDB400D38FF9 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BCF997F51AC9DD9B00D38FF9 /* libsqlite3.dylib */,
+				BCF997F31AC9DD9200D38FF9 /* libz.dylib */,
+				BCF997F11AC9DD8900D38FF9 /* SystemConfiguration.framework */,
+				BCF997EF1AC9DD8000D38FF9 /* StoreKit.framework */,
+				BCF997ED1AC9DD7B00D38FF9 /* Security.framework */,
+				BCF997EB1AC9DD7400D38FF9 /* QuartzCore.framework */,
+				BCF997E91AC9DD6A00D38FF9 /* MobileCoreServices.framework */,
+				BCF997E71AC9DD6400D38FF9 /* CoreLocation.framework */,
+				BCF997E51AC9DD5F00D38FF9 /* CoreGraphics.framework */,
+				BCF997E31AC9DD5900D38FF9 /* CFNetwork.framework */,
+				BCF997E11AC9DD5400D38FF9 /* AudioToolbox.framework */,
+				BCF997DF1AC9DD2100D38FF9 /* Bolts.framework */,
+				BCF997DD1AC9DD1400D38FF9 /* Parse.framework */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BCF997B31AC9DCD300D38FF9 /* union-1776-capstone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCF997D71AC9DCD400D38FF9 /* Build configuration list for PBXNativeTarget "union-1776-capstone" */;
+			buildPhases = (
+				BCF997B01AC9DCD300D38FF9 /* Sources */,
+				BCF997B11AC9DCD300D38FF9 /* Frameworks */,
+				BCF997B21AC9DCD300D38FF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "union-1776-capstone";
+			productName = "union-1776-capstone";
+			productReference = BCF997B41AC9DCD300D38FF9 /* union-1776-capstone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BCF997CC1AC9DCD400D38FF9 /* union-1776-capstoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCF997DA1AC9DCD400D38FF9 /* Build configuration list for PBXNativeTarget "union-1776-capstoneTests" */;
+			buildPhases = (
+				BCF997C91AC9DCD400D38FF9 /* Sources */,
+				BCF997CA1AC9DCD400D38FF9 /* Frameworks */,
+				BCF997CB1AC9DCD400D38FF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCF997CF1AC9DCD400D38FF9 /* PBXTargetDependency */,
+			);
+			name = "union-1776-capstoneTests";
+			productName = "union-1776-capstoneTests";
+			productReference = BCF997CD1AC9DCD400D38FF9 /* union-1776-capstoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BCF997AC1AC9DCD300D38FF9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Flatiron School";
+				TargetAttributes = {
+					BCF997B31AC9DCD300D38FF9 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 9RXLE5FXUN;
+					};
+					BCF997CC1AC9DCD400D38FF9 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 9RXLE5FXUN;
+						TestTargetID = BCF997B31AC9DCD300D38FF9;
+					};
+				};
+			};
+			buildConfigurationList = BCF997AF1AC9DCD300D38FF9 /* Build configuration list for PBXProject "union-1776-capstone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BCF997AB1AC9DCD300D38FF9;
+			productRefGroup = BCF997B51AC9DCD300D38FF9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BCF997B31AC9DCD300D38FF9 /* union-1776-capstone */,
+				BCF997CC1AC9DCD400D38FF9 /* union-1776-capstoneTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCF997B21AC9DCD300D38FF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF997C31AC9DCD400D38FF9 /* Main.storyboard in Resources */,
+				BCF997C81AC9DCD400D38FF9 /* LaunchScreen.xib in Resources */,
+				BCF997C51AC9DCD400D38FF9 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCF997CB1AC9DCD400D38FF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCF997B01AC9DCD300D38FF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF997C01AC9DCD300D38FF9 /* ViewController.m in Sources */,
+				BCF997BD1AC9DCD300D38FF9 /* AppDelegate.m in Sources */,
+				BCF997BA1AC9DCD300D38FF9 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCF997C91AC9DCD400D38FF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF997D41AC9DCD400D38FF9 /* union_1776_capstoneTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BCF997CF1AC9DCD400D38FF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCF997B31AC9DCD300D38FF9 /* union-1776-capstone */;
+			targetProxy = BCF997CE1AC9DCD400D38FF9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BCF997C11AC9DCD400D38FF9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCF997C21AC9DCD400D38FF9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BCF997C61AC9DCD400D38FF9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCF997C71AC9DCD400D38FF9 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BCF997D51AC9DCD400D38FF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.flatironschool.union";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: com.flatironschool.union";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BCF997D61AC9DCD400D38FF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.flatironschool.union";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: com.flatironschool.union";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCF997D81AC9DCD400D38FF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/union-1776-capstone",
+				);
+				INFOPLIST_FILE = "union-1776-capstone/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b7b2eae1-2d14-4554-907f-81b55571c9c0";
+			};
+			name = Debug;
+		};
+		BCF997D91AC9DCD400D38FF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/union-1776-capstone",
+				);
+				INFOPLIST_FILE = "union-1776-capstone/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b7b2eae1-2d14-4554-907f-81b55571c9c0";
+			};
+			name = Release;
+		};
+		BCF997DB1AC9DCD400D38FF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "union-1776-capstoneTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/union-1776-capstone.app/union-1776-capstone";
+			};
+			name = Debug;
+		};
+		BCF997DC1AC9DCD400D38FF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "union-1776-capstoneTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/union-1776-capstone.app/union-1776-capstone";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BCF997AF1AC9DCD300D38FF9 /* Build configuration list for PBXProject "union-1776-capstone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCF997D51AC9DCD400D38FF9 /* Debug */,
+				BCF997D61AC9DCD400D38FF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCF997D71AC9DCD400D38FF9 /* Build configuration list for PBXNativeTarget "union-1776-capstone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCF997D81AC9DCD400D38FF9 /* Debug */,
+				BCF997D91AC9DCD400D38FF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCF997DA1AC9DCD400D38FF9 /* Build configuration list for PBXNativeTarget "union-1776-capstoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCF997DB1AC9DCD400D38FF9 /* Debug */,
+				BCF997DC1AC9DCD400D38FF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BCF997AC1AC9DCD300D38FF9 /* Project object */;
+}
