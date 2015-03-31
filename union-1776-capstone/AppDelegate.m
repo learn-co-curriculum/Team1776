@@ -29,6 +29,34 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
+    // Extract Notification Data
+    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    
+    // Create a pointer to object
+    NSString *objectID = [notificationPayload objectForKey:@"something"];
+    PFObject *target = [PFObject objectWithoutDataWithClassName:@"something" objectId:objectID];
+    
+    // Fetch object
+    [target fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        // Show object's view controller
+        if (!error && [PFUser currentUser]) {
+            // ObjectViewController *objectVC = [[ObjectViewController alloc] initWithObject:object];
+            // self.navController pushViewController:objectVC animated:YES];
+        }
+    }];
+    
+    // TRACKING PUSHES AND APP OPENS
+            // When launched
+    if (application.applicationState != UIApplicationStateBackground) {
+        BOOL preBackgroundPush = ![application respondsToSelector:@selector(backgroundRefreshStatus)];
+        BOOL oldPushHandlerOnly = ![self respondsToSelector:@selector(application:didReceiveRemoteNotification:fetchCompletionHandler:)];
+        BOOL noPushPayLoad = ![launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (preBackgroundPush || oldPushHandlerOnly || noPushPayLoad) {
+            [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+        }
+    }
+    
+    
     return YES;
 }
 
@@ -41,7 +69,42 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
+    // TRACKING PUSHES AND APP OPENS
+            // if application is running or backgrounded
+    if (application.applicationState == UIApplicationStateInactive) {
+        // The application was just brought from the background to the foreground,
+        // so we consider the app as having been "opened by a push notification."
+        [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+    }
 }
+
+// If app is already running when the notification is received:
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    // Create empty object
+    NSString *objectID = [userInfo objectForKey:@""];
+    PFObject *target = [PFObject objectWithoutDataWithClassName:@"" objectId:objectID];
+    
+    // Fetch object
+    [target fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (error) {
+            completionHandler(UIBackgroundFetchResultFailed);
+        } else if ([PFUser currentUser]) {
+            // ObjectViewController *objectVC = [[ObjectViewController alloc] initWithObject:object];
+            // self.navController pushViewController:objectVC animated:YES];
+            completionHandler(UIBackgroundFetchResultNewData);
+        } else {
+            completionHandler(UIBackgroundFetchResultNoData);
+        }
+    }];
+    
+    // TRACKING PUSHES AND APP OPENS
+            // if using iOS 7
+    if (application.applicationState == UIApplicationStateInactive) {
+        [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+    }
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
