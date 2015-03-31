@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC87564D1AC9FF0400E42DD7 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC87564C1AC9FF0400E42DD7 /* image.xcassets */; };
 		BCF997BA1AC9DCD300D38FF9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997B91AC9DCD300D38FF9 /* main.m */; };
 		BCF997BD1AC9DCD300D38FF9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997BC1AC9DCD300D38FF9 /* AppDelegate.m */; };
 		BCF997C31AC9DCD400D38FF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF997C11AC9DCD400D38FF9 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC87564C1AC9FF0400E42DD7 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
 		BCF997B41AC9DCD300D38FF9 /* union-1776-capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "union-1776-capstone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF997B81AC9DCD300D38FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCF997B91AC9DCD300D38FF9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				BCF997B81AC9DCD300D38FF9 /* Info.plist */,
 				BCF997B91AC9DCD300D38FF9 /* main.m */,
+				BC87564C1AC9FF0400E42DD7 /* image.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCF997C31AC9DCD400D38FF9 /* Main.storyboard in Resources */,
+				BC87564D1AC9FF0400E42DD7 /* image.xcassets in Resources */,
 				BCF997C81AC9DCD400D38FF9 /* LaunchScreen.xib in Resources */,
 				BCF997C51AC9DCD400D38FF9 /* Images.xcassets in Resources */,
 			);
