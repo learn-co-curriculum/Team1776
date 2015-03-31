@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "Constants.h"
+#import <UIKit/UIKit.h>
 
 
 @interface LoginViewController ()
@@ -15,78 +17,107 @@
 
 @implementation LoginViewController
 
+
+
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
+    CGFloat heightOfIphone =[[UIScreen mainScreen] bounds].size.height;
+    CGFloat widthOfIphone = [[UIScreen mainScreen] bounds].size.width;
     
+    NSLog (@"Height of iPhone is %f", heightOfIphone);
+    NSLog (@"Width of iPhone is %f", widthOfIphone);
     
-    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+    CGRect rectOfWebView = CGRectMake(0.0, 17.0, widthOfIphone, heightOfIphone-17.0);
+    
+    self.webView = [[UIWebView alloc] initWithFrame:rectOfWebView];
     [self.view addSubview:self.webView];
     self.webView.delegate = self;
     
-    BOOL jim = YES;
+    [SSKeychain setPassword:@"3f7375a1-d70b-11e4-bf54-06867e4d05a8"
+                 forService:@"Union"
+                    account:@"CurrentUser"
+                      error:nil];
+    
+    NSString *uniqueIdentifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    NSLog(@"This should be the uniqueIdentifier:%@", uniqueIdentifier);
+    
+    
+    NSString *passwordForAccount = [SSKeychain passwordForService:@"Union" account:@"CurrentUser"];
+    NSLog (@"This should be the password set in the keychain above: %@", passwordForAccount);
     
     
     
     
+    NSString *testURL = [NSString stringWithFormat:@"%@", DEFAULT_LOGIN_SCREEN_OR_FEED];
+    NSURL *urlToUse = [NSURL URLWithString:testURL];
     
-    if (jim) {
-        
-        
-        NSLog (@"is this running");
-        
-        NSString *testURL = [NSString stringWithFormat:@"http://dev.1776union.io/union/feed/get?type=default"];
-        
-        NSURL *urlToUse = [NSURL URLWithString:testURL];
-        
-        NSURLRequest *requestToUse = [NSURLRequest requestWithURL:urlToUse];
-        
-        [self.webView loadRequest:requestToUse];
-        
-    }
-    else {
-        
-        NSLog (@"TEST");
-        
-        self.loginURL = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/loginOptions"];
-        
-        NSURL *url = [NSURL URLWithString:self.loginURL];
-        
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        
-        [self.webView loadRequest:request];
-        
+    
+    
+    NSString *html = [NSString stringWithContentsOfURL:urlToUse encoding:[NSString defaultCStringEncoding] error:nil];
+    NSRange range = [html rangeOfString:@"<body"];
+    
+    
+#warning with iPhone 4S - make the inset 60!!!
+    if(range.location != NSNotFound) {
+        // Adjust style for mobile
+        float inset = 40;
+        NSString *style = [NSString stringWithFormat:@"<style>div {max-width: %fpx;}</style>", self.view.bounds.size.width - inset];
+        html = [NSString stringWithFormat:@"%@%@%@", [html substringToIndex:range.location], style, [html substringFromIndex:range.location]];
     }
     
-    //
-    //    WKWebViewConfiguration *theConfiguration = [[WKWebViewConfiguration alloc] init];
-    //    WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:theConfiguration];
-    //    self.webView.navigationDelegate = self;
-    //    NSURL *nsurl=[NSURL URLWithString:@"http://dev.1776union.io/union/user/loginOptions"];
-    //    NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
-    //    [webView loadRequest:nsrequest];
-    //    [self.view addSubview:webView];
+    
+    [self.webView loadHTMLString:html baseURL:urlToUse];
+    
+//    
+//    NSURLRequest *requestToUse = [NSURLRequest requestWithURL:urlToUse];
+//    
+//    [self.webView loadRequest:requestToUse];
+    
+    
+    
+ 
+//        WKWebViewConfiguration *theConfiguration = [[WKWebViewConfiguration alloc] init];
+//        WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:theConfiguration];
+//        self.webView.navigationDelegate = self;
+//        NSURL *nsurl=[NSURL URLWithString:@"http://dev.1776union.io/union/user/loginOptions"];
+//        NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
+//        [webView loadRequest:nsrequest];
+//        [self.view addSubview:webView];
+    
+    NSArray *keychainAccounts = [SSKeychain allAccounts];
+    NSLog (@"THIS WOULD BE COOL: %@", keychainAccounts);
     
     
     
 }
 
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    //This opens up any links clicked in safari
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+        [[UIApplication sharedApplication] openURL:[request URL]];
+        return NO;
+    }
+    return YES;
+}
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     
+    
+    //To disable horizontal scrolling
+    [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];
+
     
     NSHTTPCookie *cookie;
     
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     
-//    name:\"1776dc_uid\" value:\"3f7375a1-d70b-11e4-bf54-06867e4d05a8
+    //    name:\"1776dc_uid\" value:\"3f7375a1-d70b-11e4-bf54-06867e4d05a8
     
-    
-    
-    
-    
-    
+
     for (cookie in [cookieJar cookies]) {
         
         if ([cookie.name isEqualToString:@"1776dc_uid"]) {

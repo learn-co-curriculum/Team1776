@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
-#import "Constants.h"
+#import <SSKeychain.h>
+#import <SSKeychainQuery.h>
 
 @interface LoginViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate>
 
@@ -16,8 +17,6 @@
 @property (strong, nonatomic) NSString *cookieValue;
 @property (strong, nonatomic) NSString *cookieValueSecure;
 @property (strong, nonatomic) UIWebView *webView;
-
-
 
 @end
 
