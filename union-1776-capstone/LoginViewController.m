@@ -38,7 +38,7 @@
     
     NSString *defaultLoginURLString;
     if (self.user1776) {
-        defaultLoginURLString = [NSString stringWithFormat:@"something"];
+        defaultLoginURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/feed/get?type=%@&feedItemId=%@", self.user1776[@"type"], self.user1776[@"feedItemId"]];
     } else {
         defaultLoginURLString = [NSString stringWithFormat:@"%@", DEFAULT_LOGIN_SCREEN_OR_FEED];
     }

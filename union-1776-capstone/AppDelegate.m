@@ -69,7 +69,8 @@
 //            "alert": "New Health Event!",
 //            "sound": "cat.caf"
 //        },
-//        "notificationChannel": @"Health"
+//        "type": @"Health"
+//        "feedItemId": @"something"
 //    }
 }
 
