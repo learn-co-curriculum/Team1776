@@ -12,6 +12,7 @@
 
 @interface LoginViewController ()
 @property (strong, nonatomic) UIWebView *webView;
+@property (strong, nonatomic) NSDictionary *user1776;
 @end
 
 @implementation LoginViewController
@@ -29,9 +30,18 @@
 
 }
 
+- (void)dataFromAppDelegate:(NSDictionary *)user1776Info {
+    self.user1776 = user1776Info;
+}
+
 - (void)requestTheDefaulLoginScreen {
     
-    NSString *defaultLoginURLString = [NSString stringWithFormat:@"%@", DEFAULT_LOGIN_SCREEN_OR_FEED];
+    NSString *defaultLoginURLString;
+    if (self.user1776) {
+        defaultLoginURLString = [NSString stringWithFormat:@"something"];
+    } else {
+        defaultLoginURLString = [NSString stringWithFormat:@"%@", DEFAULT_LOGIN_SCREEN_OR_FEED];
+    }
     NSURL *loginURL = [NSURL URLWithString:defaultLoginURLString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:loginURL];
     [self.webView loadRequest:urlRequest];
