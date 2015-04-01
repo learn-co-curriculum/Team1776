@@ -29,6 +29,24 @@
 //    [application registerUserNotificationSettings:settings];
 //    [application registerForRemoteNotifications];
     
+    if (launchOptions) {
+        // direct to feed and reload webview
+    }
+    
+    // Extract Notification Data
+    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    
+    // TRACKING PUSHES AND APP OPENS
+            // When launched
+    if (application.applicationState != UIApplicationStateBackground) {
+        BOOL preBackgroundPush = ![application respondsToSelector:@selector(backgroundRefreshStatus)];
+        BOOL oldPushHandlerOnly = ![self respondsToSelector:@selector(application:didReceiveRemoteNotification:fetchCompletionHandler:)];
+        BOOL noPushPayLoad = ![launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (preBackgroundPush || oldPushHandlerOnly || noPushPayLoad) {
+            [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+        }
+    }
+    
     return YES;
 }
 
@@ -42,6 +60,18 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 //    [PFPush handlePush:userInfo];
 }
+
+//
+//// If app is already running when the notification is received:
+//-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+//    
+//    
+//    // TRACKING PUSHES AND APP OPENS
+//            // if using iOS 7
+//    if (application.applicationState == UIApplicationStateInactive) {
+//        [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+//    }
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -59,6 +89,11 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    if (currentInstallation.badge != 0) {
+        currentInstallation.badge = 0;
+        [currentInstallation saveEventually];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
