@@ -19,17 +19,9 @@ extern NSString *const CALENDAR_FEED;
 //A bunch of hastags, not that pretty
 extern NSString *const EXPLORE_FEED;
 
-extern NSString *const PROFILE;
 
-
-
-
-
-
-
-
-
-
-
+//Working, being used with the KeychainHelper class
+extern NSString *const SERVICE_ID_FOR_KEYCHAIN;
+extern NSString *const ACCOUNT_ID_FOR_KEYCHAIN;
 
 @end
