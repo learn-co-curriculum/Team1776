@@ -10,13 +10,12 @@
 #import <WebKit/WebKit.h>
 #import <SSKeychain.h>
 #import <SSKeychainQuery.h>
+#import "KeychainHelper.h"
 
-@interface LoginViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate>
+@interface LoginViewController : UIViewController <UIWebViewDelegate>
 
-@property (strong, nonatomic) NSString *loginURL;
 @property (strong, nonatomic) NSString *cookieValue;
 @property (strong, nonatomic) NSString *cookieValueSecure;
-@property (strong, nonatomic) UIWebView *webView;
 
 @end
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D0432E41ACAE5CD00EDCE3E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0432E31ACAE5CD00EDCE3E /* LoginViewController.m */; };
+		7D26EBD81ACC7B8D00ADF09B /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D26EBD71ACC7B8D00ADF09B /* KeychainHelper.m */; };
 		7D27D52B1ACB094A003ABDAE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D27D52A1ACB094A003ABDAE /* Constants.m */; };
 		7D27D52D1ACB1E1E003ABDAE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D27D52C1ACB1E1E003ABDAE /* Social.framework */; };
 		7D27D52F1ACB1E27003ABDAE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D27D52E1ACB1E27003ABDAE /* Accounts.framework */; };
@@ -47,6 +48,8 @@
 		0856DEA3C3070AFDD8433DC2 /* Pods-union-1776-capstone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-union-1776-capstone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-union-1776-capstone/Pods-union-1776-capstone.debug.xcconfig"; sourceTree = "<group>"; };
 		7D0432E21ACAE5CD00EDCE3E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		7D0432E31ACAE5CD00EDCE3E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7D26EBD61ACC7B8D00ADF09B /* KeychainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainHelper.h; path = ../KeychainHelper.h; sourceTree = "<group>"; };
+		7D26EBD71ACC7B8D00ADF09B /* KeychainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainHelper.m; path = ../KeychainHelper.m; sourceTree = "<group>"; };
 		7D27D5291ACB094A003ABDAE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		7D27D52A1ACB094A003ABDAE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		7D27D52C1ACB1E1E003ABDAE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -156,6 +159,8 @@
 			children = (
 				7D27D5291ACB094A003ABDAE /* Constants.h */,
 				7D27D52A1ACB094A003ABDAE /* Constants.m */,
+				7D26EBD61ACC7B8D00ADF09B /* KeychainHelper.h */,
+				7D26EBD71ACC7B8D00ADF09B /* KeychainHelper.m */,
 				7D0432E21ACAE5CD00EDCE3E /* LoginViewController.h */,
 				7D0432E31ACAE5CD00EDCE3E /* LoginViewController.m */,
 				BCF997BB1AC9DCD300D38FF9 /* AppDelegate.h */,
@@ -361,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D26EBD81ACC7B8D00ADF09B /* KeychainHelper.m in Sources */,
 				7D0432E41ACAE5CD00EDCE3E /* LoginViewController.m in Sources */,
 				BCF997BD1AC9DCD300D38FF9 /* AppDelegate.m in Sources */,
 				BCF997BA1AC9DCD300D38FF9 /* main.m in Sources */,

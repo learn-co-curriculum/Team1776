@@ -18,16 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    [Parse setApplicationId:@"4H8aThaVBURMW1iTAqR7AMdqbJ5K2sX1tawYyHXl"clientKey:@"GTOKhDLFKrgZYXf5vZvvl3kRmpvgNZirPT2caAOn"];
-//    
-//    // Register for Push Notitications
-//    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-//                                                    UIUserNotificationTypeBadge |
-//                                                    UIUserNotificationTypeSound);
-//    
-//    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
-//    [application registerUserNotificationSettings:settings];
-//    [application registerForRemoteNotifications];
+    [Parse setApplicationId:@"4H8aThaVBURMW1iTAqR7AMdqbJ5K2sX1tawYyHXl"clientKey:@"GTOKhDLFKrgZYXf5vZvvl3kRmpvgNZirPT2caAOn"];
+    
+    // Register for Push Notitications
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge |
+                                                    UIUserNotificationTypeSound);
+    
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
     
     if (launchOptions) {
         // direct to feed and reload webview
@@ -51,14 +51,14 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    // Store the deviceToken in the current installation and save it to Parse.
-//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-//    [currentInstallation setDeviceTokenFromData:deviceToken];
-//    [currentInstallation saveInBackground];
+//     Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-//    [PFPush handlePush:userInfo];
+    [PFPush handlePush:userInfo];
 }
 
 //
