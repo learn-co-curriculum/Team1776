@@ -29,12 +29,15 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
+    // Extract Notification Data
+//    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    
+    
+    
     if (launchOptions) {
         // direct to feed and reload webview
     }
-    
-    // Extract Notification Data
-    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+
     
     // TRACKING PUSHES AND APP OPENS
             // When launched
@@ -59,17 +62,29 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
+    [self.delegate dataFromAppDelegate:userInfo];
+//    {
+//        "aps": {
+//            "badge": 10,
+//            "alert": "New Health Event!",
+//            "sound": "cat.caf"
+//        },
+//        "notificationChannel": @"Health"
+//    }
 }
 
-//
-//// If app is already running when the notification is received:
-//-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-//    
-//    
-//    // TRACKING PUSHES AND APP OPENS
-//            // if using iOS 7
-//    if (application.applicationState == UIApplicationStateInactive) {
-//        [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+//- (void)handleBackgroundNotification:(NSDictionary *)notification
+//{
+//    NSDictionary *aps = (NSDictionary *)[notification objectForKey:@"aps"];
+//    NSMutableString *alert = [NSMutableString stringWithString:@""];
+//    if ([aps objectForKey:@"alert"])
+//    {
+//        [alert appendString:(NSString *)[aps objectForKey:@"alert"]];
+//    }
+//    if ([notification objectForKey:@"notificationChannel"])
+//    {
+//        // do something with job id
+//        int jobID = [[notification objectForKey:@"job_id"] intValue];
 //    }
 //}
 
