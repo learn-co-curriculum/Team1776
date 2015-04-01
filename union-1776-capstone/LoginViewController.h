@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *loginURL;
 @property (strong, nonatomic) NSString *cookieValue;
 @property (strong, nonatomic) NSString *cookieValueSecure;
+
 @property (strong, nonatomic) UIWebView *webView;
 
 @end

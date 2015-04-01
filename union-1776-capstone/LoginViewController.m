@@ -24,6 +24,7 @@
     
     [super viewDidLoad];
     
+    
     CGFloat heightOfIphone =[[UIScreen mainScreen] bounds].size.height;
     CGFloat widthOfIphone = [[UIScreen mainScreen] bounds].size.width;
     
@@ -34,6 +35,7 @@
     
     self.webView = [[UIWebView alloc] initWithFrame:rectOfWebView];
     [self.view addSubview:self.webView];
+    
     self.webView.delegate = self;
     
     [SSKeychain setPassword:@"3f7375a1-d70b-11e4-bf54-06867e4d05a8"
