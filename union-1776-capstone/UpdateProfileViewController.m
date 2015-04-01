@@ -14,12 +14,32 @@
 
 @implementation UpdateProfileViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.webView = [[WKWebView alloc] initWithFrame:self.view.frame];
+    
+    [self.view addSubview:self.webView];
+    
+    [self.webView setNavigationDelegate:self];
+    [self.webView setUIDelegate:self];
+    
+    NSString *categorizationNameParam = @"User%20Registration";
+    
+    NSString *profileURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/getAttributeCollection?userId=%@&categorizationName=%@", @"",categorizationNameParam];
+//    NSString *profileURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/explore/index"];
+    
+    NSURL *profileURL = [NSURL URLWithString:profileURLString];
+    
+    NSURLRequest *profileRequest = [NSURLRequest requestWithURL:profileURL];
+    
+    [self.webView loadRequest:profileRequest];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
-@interface CalendarViewController : UIViewController
+@interface CalendarViewController : UIViewController <WKUIDelegate, WKNavigationDelegate>
+
+@property (strong, nonatomic) WKWebView *webView;
 
 @end

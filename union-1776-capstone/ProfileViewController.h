@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <WKUIDelegate, WKNavigationDelegate>
+
+@property (strong, nonatomic) WKWebView *webView;
 
 @end
