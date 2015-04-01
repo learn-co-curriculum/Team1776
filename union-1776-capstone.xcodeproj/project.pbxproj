@@ -12,6 +12,11 @@
 		7D27D52B1ACB094A003ABDAE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D27D52A1ACB094A003ABDAE /* Constants.m */; };
 		7D27D52D1ACB1E1E003ABDAE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D27D52C1ACB1E1E003ABDAE /* Social.framework */; };
 		7D27D52F1ACB1E27003ABDAE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D27D52E1ACB1E27003ABDAE /* Accounts.framework */; };
+		A09BDBD81ACC2E1300254711 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBD71ACC2E1300254711 /* CalendarViewController.m */; };
+		A09BDBDB1ACC2E4500254711 /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBDA1ACC2E4500254711 /* ExploreViewController.m */; };
+		A09BDBE71ACC71BE00254711 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBE61ACC71BE00254711 /* ProfileViewController.m */; };
+		A09BDBEA1ACC742100254711 /* UpdateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBE91ACC742100254711 /* UpdateProfileViewController.m */; };
+		A09BDBED1ACC7CE200254711 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBEC1ACC7CE200254711 /* MoreTableViewController.m */; };
 		BC87564D1AC9FF0400E42DD7 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC87564C1AC9FF0400E42DD7 /* image.xcassets */; };
 		BCF997BA1AC9DCD300D38FF9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997B91AC9DCD300D38FF9 /* main.m */; };
 		BCF997BD1AC9DCD300D38FF9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997BC1AC9DCD300D38FF9 /* AppDelegate.m */; };
@@ -55,6 +60,16 @@
 		7D27D52C1ACB1E1E003ABDAE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		7D27D52E1ACB1E27003ABDAE /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		91CBAB3A7446AC923FABB597 /* libPods-union-1776-capstone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-union-1776-capstone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09BDBD61ACC2E1300254711 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		A09BDBD71ACC2E1300254711 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		A09BDBD91ACC2E4500254711 /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
+		A09BDBDA1ACC2E4500254711 /* ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreViewController.m; sourceTree = "<group>"; };
+		A09BDBE51ACC71BD00254711 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		A09BDBE61ACC71BE00254711 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		A09BDBE81ACC742100254711 /* UpdateProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateProfileViewController.h; sourceTree = "<group>"; };
+		A09BDBE91ACC742100254711 /* UpdateProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateProfileViewController.m; sourceTree = "<group>"; };
+		A09BDBEB1ACC7CE200254711 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
+		A09BDBEC1ACC7CE200254711 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		BC87564C1AC9FF0400E42DD7 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
 		BCF997B41AC9DCD300D38FF9 /* union-1776-capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "union-1776-capstone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF997B81AC9DCD300D38FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -165,6 +180,16 @@
 				7D0432E31ACAE5CD00EDCE3E /* LoginViewController.m */,
 				BCF997BB1AC9DCD300D38FF9 /* AppDelegate.h */,
 				BCF997BC1AC9DCD300D38FF9 /* AppDelegate.m */,
+				A09BDBD61ACC2E1300254711 /* CalendarViewController.h */,
+				A09BDBD71ACC2E1300254711 /* CalendarViewController.m */,
+				A09BDBD91ACC2E4500254711 /* ExploreViewController.h */,
+				A09BDBDA1ACC2E4500254711 /* ExploreViewController.m */,
+				A09BDBEB1ACC7CE200254711 /* MoreTableViewController.h */,
+				A09BDBEC1ACC7CE200254711 /* MoreTableViewController.m */,
+				A09BDBE51ACC71BD00254711 /* ProfileViewController.h */,
+				A09BDBE61ACC71BE00254711 /* ProfileViewController.m */,
+				A09BDBE81ACC742100254711 /* UpdateProfileViewController.h */,
+				A09BDBE91ACC742100254711 /* UpdateProfileViewController.m */,
 				BCF997C11AC9DCD400D38FF9 /* Main.storyboard */,
 				BCF997C41AC9DCD400D38FF9 /* Images.xcassets */,
 				BCF997C61AC9DCD400D38FF9 /* LaunchScreen.xib */,
@@ -368,9 +393,14 @@
 			files = (
 				7D26EBD81ACC7B8D00ADF09B /* KeychainHelper.m in Sources */,
 				7D0432E41ACAE5CD00EDCE3E /* LoginViewController.m in Sources */,
+				A09BDBED1ACC7CE200254711 /* MoreTableViewController.m in Sources */,
+				A09BDBDB1ACC2E4500254711 /* ExploreViewController.m in Sources */,
 				BCF997BD1AC9DCD300D38FF9 /* AppDelegate.m in Sources */,
+				A09BDBD81ACC2E1300254711 /* CalendarViewController.m in Sources */,
 				BCF997BA1AC9DCD300D38FF9 /* main.m in Sources */,
 				7D27D52B1ACB094A003ABDAE /* Constants.m in Sources */,
+				A09BDBE71ACC71BE00254711 /* ProfileViewController.m in Sources */,
+				A09BDBEA1ACC742100254711 /* UpdateProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
