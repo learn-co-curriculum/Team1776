@@ -18,12 +18,9 @@
 @implementation LoginViewController
 
 
-
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
     
     CGFloat heightOfIphone =[[UIScreen mainScreen] bounds].size.height;
     CGFloat widthOfIphone = [[UIScreen mainScreen] bounds].size.width;
@@ -50,26 +47,22 @@
     NSString *passwordForAccount = [SSKeychain passwordForService:@"Union" account:@"CurrentUser"];
     NSLog (@"This should be the password set in the keychain above: %@", passwordForAccount);
     
-    
-    
-    
     NSString *testURL = [NSString stringWithFormat:@"%@", DEFAULT_LOGIN_SCREEN_OR_FEED];
     NSURL *urlToUse = [NSURL URLWithString:testURL];
     
-    
-    
     NSString *html = [NSString stringWithContentsOfURL:urlToUse encoding:[NSString defaultCStringEncoding] error:nil];
-    NSRange range = [html rangeOfString:@"<body"];
     
     
-#warning with iPhone 4S - make the inset 60!!!
-    if(range.location != NSNotFound) {
-        // Adjust style for mobile
-        float inset = 40;
-        NSString *style = [NSString stringWithFormat:@"<style>div {max-width: %fpx;}</style>", self.view.bounds.size.width - inset];
-        html = [NSString stringWithFormat:@"%@%@%@", [html substringToIndex:range.location], style, [html substringFromIndex:range.location]];
-    }
-    
+//    NSRange range = [html rangeOfString:@"<body"];
+//    
+//    
+//#warning with iPhone 4S - make the inset 60!!!
+//    if(range.location != NSNotFound) {
+//        // Adjust style for mobile
+//        float inset = 40;
+//        NSString *style = [NSString stringWithFormat:@"<style>div {max-width: %fpx;}</style>", self.view.bounds.size.width - inset];
+//        html = [NSString stringWithFormat:@"%@%@%@", [html substringToIndex:range.location], style, [html substringFromIndex:range.location]];
+//    }
     
     [self.webView loadHTMLString:html baseURL:urlToUse];
     
