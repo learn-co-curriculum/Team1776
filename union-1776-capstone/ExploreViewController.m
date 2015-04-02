@@ -7,6 +7,7 @@
 //
 
 #import "ExploreViewController.h"
+#import "Constants.h"
 
 @interface ExploreViewController ()
 
@@ -23,28 +24,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.UIBack.enabled = NO;
     [self.UIBack setTintColor:[UIColor clearColor]];
     self.UIForward.enabled = NO;
     [self.UIForward setTintColor:[UIColor clearColor]];
     
-    self.webView = [[WKWebView alloc] initWithFrame:self.view.frame];
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     
     [self.view addSubview:self.webView];
     
-    [self.webView setNavigationDelegate:self];
-    [self.webView setUIDelegate:self];
+    self.webView.delegate = self;
+    //    [self.webView setNavigationDelegate:self];
+    //    [self.webView setUIDelegate:self];
     
-    NSString *exploreURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/explore/index"];
-    
+    NSString *exploreURLString = [NSString stringWithFormat:@"%@", EXPLORE_FEED];
     NSURL *exploreURL = [NSURL URLWithString:exploreURLString];
-    
     NSURLRequest *exploreRequest = [NSURLRequest requestWithURL:exploreURL];
     
     [self.webView loadRequest:exploreRequest];
-    
     [self.webView addObserver:self forKeyPath:@"loading" options:NSKeyValueObservingOptionNew context:nil];
 }
 
@@ -61,7 +59,7 @@
         {
             [self.UIBack setTintColor:[UIColor clearColor]];
         }
-
+        
         self.UIForward.enabled = self.webView.canGoForward;
         if (self.webView.canGoForward)
         {
@@ -77,18 +75,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)forwardTapped:(id)sender
 {
