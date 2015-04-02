@@ -11,6 +11,4 @@
 
 @interface ExploreViewController : UIViewController <UIWebViewDelegate>
 
-@property (strong, nonatomic) UIWebView *webView;
-
 @end

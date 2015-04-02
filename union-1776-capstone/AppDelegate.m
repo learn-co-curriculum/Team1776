@@ -15,7 +15,6 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Parse setApplicationId:@"4H8aThaVBURMW1iTAqR7AMdqbJ5K2sX1tawYyHXl"clientKey:@"GTOKhDLFKrgZYXf5vZvvl3kRmpvgNZirPT2caAOn"];
@@ -32,13 +31,10 @@
     // Extract Notification Data
 //    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
     
-    
-    
     if (launchOptions) {
         // direct to feed and reload webview
     }
 
-    
     // TRACKING PUSHES AND APP OPENS
             // When launched
     if (application.applicationState != UIApplicationStateBackground) {
@@ -49,7 +45,6 @@
             [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
         }
     }
-    
     return YES;
 }
 

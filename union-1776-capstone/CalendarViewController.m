@@ -8,10 +8,12 @@
 
 #import "CalendarViewController.h"
 #import "Constants.h"
+#import "APIClient.h"
 
 @interface CalendarViewController ()
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *UIBack;
+@property (strong, nonatomic) UIWebView *webView;
 
 - (IBAction)backTapped:(id)sender;
 
@@ -25,18 +27,14 @@
     
     self.UIBack.enabled = NO;
     [self.UIBack setTintColor:[UIColor clearColor]];
-    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:self.webView];
     
     self.webView.delegate = self;
-    //    [self.webView setNavigationDelegate:self];
-    //    [self.webView setUIDelegate:self];
     
-    NSString *calendarURLString = [NSString stringWithFormat:@"%@", CALENDAR_FEED];
-    NSURL *calendarURL = [NSURL URLWithString:calendarURLString];
-    NSURLRequest *calendarRequest = [NSURLRequest requestWithURL:calendarURL];
-    [self.webView loadRequest:calendarRequest];
+    [APIClient loadTheCalendarFeedWithWebView:self.webView];
+    
     [self.webView addObserver:self forKeyPath:@"loading" options:NSKeyValueObservingOptionNew context:nil];
 }
 

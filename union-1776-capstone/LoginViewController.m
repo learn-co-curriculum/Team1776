@@ -13,6 +13,8 @@
 @interface LoginViewController ()
 @property (strong, nonatomic) UIWebView *webView;
 @property (strong, nonatomic) NSDictionary *user1776;
+@property (strong, nonatomic) NSString *cookieValue;
+@property (strong, nonatomic) NSString *cookieValueSecure;
 @end
 
 @implementation LoginViewController
@@ -31,27 +33,26 @@
 }
 
 - (void)dataFromAppDelegate:(NSDictionary *)user1776Info {
+    
     self.user1776 = user1776Info;
 }
 
 - (void)requestTheDefaulLoginScreen {
     
-    NSString *defaultLoginURLString;
     if (self.user1776) {
-        defaultLoginURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/feed/get?type=%@&feedItemId=%@", self.user1776[@"type"], self.user1776[@"feedItemId"]];
-    } else {
-        defaultLoginURLString = [NSString stringWithFormat:@"%@", DEFAULT_LOGIN_SCREEN_OR_FEED];
+        
+        [APIClient loadTheFeedWithNotification:self.user1776 withWebView:self.webView];
     }
-    NSURL *loginURL = [NSURL URLWithString:defaultLoginURLString];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:loginURL];
-    [self.webView loadRequest:urlRequest];
+    else {
+        
+        [APIClient loadTheInitialFeedOrLoginScreenWithWebView:self.webView];
+    }
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     
     //To disable horizontal scrolling
     [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];
-    
     
     //To find the cookie needed to store the 1776dc_uid
     NSHTTPCookie *cookie;
@@ -70,7 +71,6 @@
     }
     
     [KeychainHelper setUpCurrentUserInKeyChainWithValueID:self.cookieValue];
-    
 }
 
 - (void)setUpOurInitialView {

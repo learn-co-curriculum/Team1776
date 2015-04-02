@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @protocol AppDelegateDelegate <NSObject>
 
 @required
@@ -18,4 +19,3 @@
 @property (weak, nonatomic) id<AppDelegateDelegate> delegate;
 
 @end
-

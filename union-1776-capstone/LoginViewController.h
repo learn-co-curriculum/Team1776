@@ -11,11 +11,9 @@
 #import <SSKeychain.h>
 #import <SSKeychainQuery.h>
 #import "KeychainHelper.h"
+#import "APIClient.h"
 
 @interface LoginViewController : UIViewController <UIWebViewDelegate>
-
-@property (strong, nonatomic) NSString *cookieValue;
-@property (strong, nonatomic) NSString *cookieValueSecure;
 
 @end
 

@@ -8,6 +8,7 @@
 
 #import "ExploreViewController.h"
 #import "Constants.h"
+#import "APIClient.h"
 
 @interface ExploreViewController ()
 
@@ -16,7 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *UIForward;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *UIBack;
-
+@property (strong, nonatomic) UIWebView *webView;
 @end
 
 @implementation ExploreViewController
@@ -35,14 +36,9 @@
     [self.view addSubview:self.webView];
     
     self.webView.delegate = self;
-    //    [self.webView setNavigationDelegate:self];
-    //    [self.webView setUIDelegate:self];
     
-    NSString *exploreURLString = [NSString stringWithFormat:@"%@", EXPLORE_FEED];
-    NSURL *exploreURL = [NSURL URLWithString:exploreURLString];
-    NSURLRequest *exploreRequest = [NSURLRequest requestWithURL:exploreURL];
-    
-    [self.webView loadRequest:exploreRequest];
+    [APIClient loadTheExplorerFeedWitHWebView:self.webView];
+
     [self.webView addObserver:self forKeyPath:@"loading" options:NSKeyValueObservingOptionNew context:nil];
 }
 
