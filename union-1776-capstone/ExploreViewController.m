@@ -12,10 +12,8 @@
 
 @interface ExploreViewController ()
 
-- (IBAction)forwardTapped:(id)sender;
 - (IBAction)backTapped:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *UIForward;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *UIBack;
 @property (strong, nonatomic) UIWebView *webView;
 @end
@@ -28,8 +26,6 @@
     
     self.UIBack.enabled = NO;
     [self.UIBack setTintColor:[UIColor clearColor]];
-    self.UIForward.enabled = NO;
-    [self.UIForward setTintColor:[UIColor clearColor]];
     
     self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     
@@ -38,47 +34,30 @@
     self.webView.delegate = self;
     
     [APIClient loadTheExplorerFeedWitHWebView:self.webView];
-
-    [self.webView addObserver:self forKeyPath:@"loading" options:NSKeyValueObservingOptionNew context:nil];
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+-(void)webViewDidStartLoad:(UIWebView *)webView
 {
-    if ( [keyPath isEqualToString:@"loading"] )
+    self.UIBack.enabled = self.webView.canGoBack;
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    if (webView.canGoBack == YES)
     {
-        self.UIBack.enabled = self.webView.canGoBack;
-        if (self.webView.canGoBack)
-        {
-            [self.UIBack setTintColor:[UIColor blueColor]];
-        }
-        else
-        {
-            [self.UIBack setTintColor:[UIColor clearColor]];
-        }
-        
-        self.UIForward.enabled = self.webView.canGoForward;
-        if (self.webView.canGoForward)
-        {
-            [self.UIForward setTintColor:[UIColor blueColor]];
-        }
-        else
-        {
-            [self.UIForward setTintColor:[UIColor clearColor]];
-        }
+        self.UIBack.enabled = YES;
+        [self.UIBack setTintColor:[UIColor blueColor]];
+    }
+    else
+    {
+        self.UIBack.enabled = NO;
+        [self.UIBack setTintColor:[UIColor clearColor]];
     }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-}
-
-- (IBAction)forwardTapped:(id)sender
-{
-    if ([self.webView canGoForward])
-    {
-        [self.webView goForward];
-    }
 }
 
 - (IBAction)backTapped:(id)sender

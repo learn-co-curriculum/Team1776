@@ -15,6 +15,10 @@
 @property (strong, nonatomic) NSDictionary *user1776;
 @property (strong, nonatomic) NSString *cookieValue;
 @property (strong, nonatomic) NSString *cookieValueSecure;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *UIBack;
+- (IBAction)backTapped:(id)sender;
+
 @end
 
 @implementation LoginViewController
@@ -23,6 +27,9 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.UIBack.enabled = NO;
+    [self.UIBack setTintColor:[UIColor clearColor]];
     
     [self setUpOurInitialView];
     
@@ -49,6 +56,11 @@
     }
 }
 
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    self.UIBack.enabled = self.webView.canGoBack;
+}
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     
     //To disable horizontal scrolling
@@ -71,6 +83,17 @@
     }
     
     [KeychainHelper setUpCurrentUserInKeyChainWithValueID:self.cookieValue];
+
+    if (webView.canGoBack == YES)
+    {
+        self.UIBack.enabled = YES;
+        [self.UIBack setTintColor:[UIColor blueColor]];
+    }
+    else
+    {
+        self.UIBack.enabled = NO;
+        [self.UIBack setTintColor:[UIColor clearColor]];
+    }
 }
 
 - (void)setUpOurInitialView {
@@ -89,4 +112,11 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)backTapped:(id)sender
+{
+    if ([self.webView canGoBack])
+    {
+        [self.webView goBack];
+    }
+}
 @end

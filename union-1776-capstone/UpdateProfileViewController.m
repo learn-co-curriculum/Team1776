@@ -41,25 +41,6 @@
     [self.webView loadRequest:profileRequest];
 }
 
-//-(void)webViewDidStartLoad:(UIWebView *)webView
-//{
-//    self.UIBack.enabled = self.webView.canGoBack;
-//}
-//
-//-(void)webViewDidFinishLoad:(UIWebView *)webView
-//{
-//    if (webView.canGoBack == YES)
-//    {
-//        self.UIBack.enabled = YES;
-//        [self.UIBack setTintColor:[UIColor blueColor]];
-//    }
-//    else
-//    {
-//        self.UIBack.enabled = NO;
-//        [self.UIBack setTintColor:[UIColor clearColor]];
-//    }
-//}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

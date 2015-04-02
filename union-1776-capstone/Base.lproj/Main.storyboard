@@ -17,7 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Feed" id="qDd-yl-FEd"/>
+                    <navigationItem key="navigationItem" title="Feed" id="qDd-yl-FEd">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="buM-mf-Lmg">
+                            <connections>
+                                <action selector="backTapped:" destination="BYZ-38-t0r" id="RCk-3R-Lur"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="UIBack" destination="buM-mf-Lmg" id="qE1-Lw-QWK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,15 +98,9 @@
                                 <action selector="backTapped:" destination="0Dq-h1-DGo" id="QN1-YQ-fFy"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Forward &gt;" id="2Qt-gQ-e1F">
-                            <connections>
-                                <action selector="forwardTapped:" destination="0Dq-h1-DGo" id="aov-1U-lQS"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="UIBack" destination="bfk-rB-BeH" id="j71-13-AyL"/>
-                        <outlet property="UIForward" destination="2Qt-gQ-e1F" id="u9M-zx-oxA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ivT-0F-6Oi" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -34,23 +34,24 @@
     self.webView.delegate = self;
     
     [APIClient loadTheCalendarFeedWithWebView:self.webView];
-    
-    [self.webView addObserver:self forKeyPath:@"loading" options:NSKeyValueObservingOptionNew context:nil];
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+-(void)webViewDidStartLoad:(UIWebView *)webView
 {
-    if ( [keyPath isEqualToString:@"loading"] )
+    self.UIBack.enabled = self.webView.canGoBack;
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    if (webView.canGoBack == YES)
     {
-        self.UIBack.enabled = self.webView.canGoBack;
-        if (self.webView.canGoBack)
-        {
-            [self.UIBack setTintColor:[UIColor blueColor]];
-        }
-        else
-        {
-            [self.UIBack setTintColor:[UIColor clearColor]];
-        }
+        self.UIBack.enabled = YES;
+        [self.UIBack setTintColor:[UIColor blueColor]];
+    }
+    else
+    {
+        self.UIBack.enabled = NO;
+        [self.UIBack setTintColor:[UIColor clearColor]];
     }
 }
 
