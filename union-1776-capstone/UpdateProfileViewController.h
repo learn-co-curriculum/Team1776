@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <WebKit/WebKit.h>
 
-@interface UpdateProfileViewController : UIViewController <WKUIDelegate, WKNavigationDelegate>
+@interface UpdateProfileViewController : UIViewController <UIWebViewDelegate>
 
-@property (strong, nonatomic) WKWebView *webView;
+@property (strong, nonatomic) UIWebView *webView;
 
 @end

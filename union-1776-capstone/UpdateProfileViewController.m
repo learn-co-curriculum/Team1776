@@ -7,6 +7,9 @@
 //
 
 #import "UpdateProfileViewController.h"
+#import <SSKeychain.h>
+#import <SSKeychainQuery.h>
+#import "KeychainHelper.h"
 
 @interface UpdateProfileViewController ()
 
@@ -19,17 +22,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.webView = [[WKWebView alloc] initWithFrame:self.view.frame];
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     
     [self.view addSubview:self.webView];
     
-    [self.webView setNavigationDelegate:self];
-    [self.webView setUIDelegate:self];
+    [self.webView setDelegate:self];
     
     NSString *categorizationNameParam = @"User%20Registration";
     
-    NSString *profileURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/getAttributeCollection?userId=%@&categorizationName=%@", @"",categorizationNameParam];
-//    NSString *profileURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/explore/index"];
+    NSString *userID = [KeychainHelper returnValueIDForCurrentUser];
+    
+    NSString *profileURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/getAttributeCollection?userId=%@&categorizationName=%@", userID,categorizationNameParam];
     
     NSURL *profileURL = [NSURL URLWithString:profileURLString];
     
@@ -37,6 +40,25 @@
     
     [self.webView loadRequest:profileRequest];
 }
+
+//-(void)webViewDidStartLoad:(UIWebView *)webView
+//{
+//    self.UIBack.enabled = self.webView.canGoBack;
+//}
+//
+//-(void)webViewDidFinishLoad:(UIWebView *)webView
+//{
+//    if (webView.canGoBack == YES)
+//    {
+//        self.UIBack.enabled = YES;
+//        [self.UIBack setTintColor:[UIColor blueColor]];
+//    }
+//    else
+//    {
+//        self.UIBack.enabled = NO;
+//        [self.UIBack setTintColor:[UIColor clearColor]];
+//    }
+//}
 
 - (void)didReceiveMemoryWarning
 {
