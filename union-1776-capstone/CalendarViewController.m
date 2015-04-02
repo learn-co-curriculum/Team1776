@@ -32,7 +32,6 @@
     [self.view addSubview:self.webView];
     
     self.webView.delegate = self;
-    
     [APIClient loadTheCalendarFeedWithWebView:self.webView];
 }
 

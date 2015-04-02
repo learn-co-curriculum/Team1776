@@ -42,4 +42,23 @@
     [webview loadRequest:exploreRequest];
 }
 
++ (void)loadTheProfilePageWithUserIDforWebView:(UIWebView *)webview {
+
+    NSString *userID = [KeychainHelper returnValueIDForCurrentUser];
+    NSString *profileURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/profile?userId=%@", userID];
+    NSURL *profileURL = [NSURL URLWithString:profileURLString];
+    NSURLRequest *profileRequest = [NSURLRequest requestWithURL:profileURL];
+    [webview loadRequest:profileRequest];
+}
+
++ (void)loadTheUpdateProfilePageWithUserIDforWebView:(UIWebView *)webview {
+    
+    NSString *categorizationNameParam = @"User%20Registration";
+    NSString *userID = [KeychainHelper returnValueIDForCurrentUser];
+    NSString *profileURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/getAttributeCollection?userId=%@&categorizationName=%@", userID,categorizationNameParam];
+    NSURL *profileURL = [NSURL URLWithString:profileURLString];
+    NSURLRequest *profileRequest = [NSURLRequest requestWithURL:profileURL];
+    [webview loadRequest:profileRequest];
+}
+
 @end

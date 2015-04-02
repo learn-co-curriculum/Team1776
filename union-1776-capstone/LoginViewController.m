@@ -67,23 +67,23 @@
     [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];
     
     //To find the cookie needed to store the 1776dc_uid
-    NSHTTPCookie *cookie;
-    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    
-    for (cookie in [cookieJar cookies]) {
-        
-        if ([cookie.name isEqualToString:@"1776dc_uid"]) {
-            
-            self.cookieValue = cookie.value;
-        }
-        if ([cookie.name isEqualToString:@"1776dc_uid_secure"]) {
-            
-            self.cookieValueSecure = cookie.value;
-        }
-    }
+    //    NSHTTPCookie *cookie;
+    //    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    //
+    //    for (cookie in [cookieJar cookies]) {
+    //
+    //        if ([cookie.name isEqualToString:@"1776dc_uid"]) {
+    //
+    //            self.cookieValue = cookie.value;
+    //        }
+    //        if ([cookie.name isEqualToString:@"1776dc_uid_secure"]) {
+    //
+    //            self.cookieValueSecure = cookie.value;
+    //        }
+    //    }
     
     [KeychainHelper setUpCurrentUserInKeyChainWithValueID:self.cookieValue];
-
+    
     if (webView.canGoBack == YES)
     {
         self.UIBack.enabled = YES;

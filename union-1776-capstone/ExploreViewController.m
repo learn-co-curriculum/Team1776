@@ -28,11 +28,8 @@
     [self.UIBack setTintColor:[UIColor clearColor]];
     
     self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
-    
     [self.view addSubview:self.webView];
-    
     self.webView.delegate = self;
-    
     [APIClient loadTheExplorerFeedWitHWebView:self.webView];
 }
 
@@ -43,6 +40,10 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    
+    //To disable horizontal scrolling
+    [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];
+    
     if (webView.canGoBack == YES)
     {
         self.UIBack.enabled = YES;
