@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Constants.h"
 #import <WebKit/WebKit.h>
+#import "KeychainHelper.h"
 
 @interface APIClient : NSObject
 
@@ -16,5 +17,7 @@
 + (void)loadTheFeedWithNotification:(NSDictionary *)notification withWebView:(UIWebView *)webview;
 + (void)loadTheCalendarFeedWithWebView:(UIWebView *)webview;
 + (void)loadTheExplorerFeedWitHWebView:(UIWebView *)webview;
++ (void)loadTheProfilePageWithUserIDforWebView:(UIWebView *)webview;
++ (void)loadTheUpdateProfilePageWithUserIDforWebView:(UIWebView *)webview;
 
 @end
