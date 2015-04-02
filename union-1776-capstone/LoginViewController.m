@@ -27,7 +27,7 @@
     [self requestTheDefaulLoginScreen];
     
     NSLog(@"The value for the person logging in is : %@", [KeychainHelper returnValueIDForCurrentUser]);
-
+    
 }
 
 - (void)dataFromAppDelegate:(NSDictionary *)user1776Info {
@@ -51,7 +51,7 @@
     
     //To disable horizontal scrolling
     [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];
-
+    
     
     //To find the cookie needed to store the 1776dc_uid
     NSHTTPCookie *cookie;
@@ -77,7 +77,7 @@
     
     CGFloat heightOfIphone =[[UIScreen mainScreen] bounds].size.height;
     CGFloat widthOfIphone = [[UIScreen mainScreen] bounds].size.width;
-    CGRect rectOfWebView = CGRectMake(0.0, 17.0, widthOfIphone, heightOfIphone-17.0);
+    CGRect rectOfWebView = CGRectMake(0.0, 0.0, widthOfIphone, heightOfIphone);
     self.webView = [[UIWebView alloc] initWithFrame:rectOfWebView];
     [self.view addSubview:self.webView];
     self.webView.delegate = self;
