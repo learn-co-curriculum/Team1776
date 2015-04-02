@@ -7,6 +7,9 @@
 //
 
 #import "ProfileViewController.h"
+#import <SSKeychain.h>
+#import <SSKeychainQuery.h>
+#import "KeychainHelper.h"
 
 @interface ProfileViewController ()
 
@@ -19,15 +22,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    self.webView = [[WKWebView alloc] initWithFrame:self.view.frame];
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     
     [self.view addSubview:self.webView];
     
-    [self.webView setNavigationDelegate:self];
-    [self.webView setUIDelegate:self];
+    [self.webView setDelegate:self];
     
-    NSString *profileURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/profile?userId=%@", @""];
-//    NSString *profileURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/explore/index"];
+    NSString *userID = [KeychainHelper returnValueIDForCurrentUser];
+    
+    NSString *profileURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/profile?userId=%@", userID];
     
     NSURL *profileURL = [NSURL URLWithString:profileURLString];
     
