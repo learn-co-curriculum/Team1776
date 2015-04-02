@@ -19,6 +19,7 @@
 		A09BDBEA1ACC742100254711 /* UpdateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBE91ACC742100254711 /* UpdateProfileViewController.m */; };
 		A09BDBED1ACC7CE200254711 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBEC1ACC7CE200254711 /* MoreTableViewController.m */; };
 		BC87564D1AC9FF0400E42DD7 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC87564C1AC9FF0400E42DD7 /* image.xcassets */; };
+		BCA479D51ACDCE860030AD8C /* union-launchscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA479D41ACDCE860030AD8C /* union-launchscreen.png */; };
 		BCF997BA1AC9DCD300D38FF9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997B91AC9DCD300D38FF9 /* main.m */; };
 		BCF997BD1AC9DCD300D38FF9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997BC1AC9DCD300D38FF9 /* AppDelegate.m */; };
 		BCF997C31AC9DCD400D38FF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF997C11AC9DCD400D38FF9 /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		A09BDBEB1ACC7CE200254711 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		A09BDBEC1ACC7CE200254711 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		BC87564C1AC9FF0400E42DD7 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
+		BCA479D41ACDCE860030AD8C /* union-launchscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "union-launchscreen.png"; sourceTree = "<group>"; };
 		BCF997B41AC9DCD300D38FF9 /* union-1776-capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "union-1776-capstone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF997B81AC9DCD300D38FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCF997B91AC9DCD300D38FF9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		BCF997B61AC9DCD300D38FF9 /* union-1776-capstone */ = {
 			isa = PBXGroup;
 			children = (
+				BCA479D41ACDCE860030AD8C /* union-launchscreen.png */,
 				7DE8BD021ACD927300D86708 /* APIClient.h */,
 				7DE8BD031ACD927300D86708 /* APIClient.m */,
 				7D27D5291ACB094A003ABDAE /* Constants.h */,
@@ -344,6 +347,7 @@
 			files = (
 				BCF997C31AC9DCD400D38FF9 /* Main.storyboard in Resources */,
 				BC87564D1AC9FF0400E42DD7 /* image.xcassets in Resources */,
+				BCA479D51ACDCE860030AD8C /* union-launchscreen.png in Resources */,
 				BCF997C81AC9DCD400D38FF9 /* LaunchScreen.xib in Resources */,
 				BCF997C51AC9DCD400D38FF9 /* Images.xcassets in Resources */,
 			);
