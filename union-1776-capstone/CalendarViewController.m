@@ -7,6 +7,7 @@
 //
 
 #import "CalendarViewController.h"
+#import "Constants.h"
 
 @interface CalendarViewController ()
 
@@ -21,26 +22,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.UIBack.enabled = NO;
     [self.UIBack setTintColor:[UIColor clearColor]];
-    
-    self.webView = [[WKWebView alloc] initWithFrame:self.view.frame];
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     
     [self.view addSubview:self.webView];
     
-    [self.webView setNavigationDelegate:self];
-    [self.webView setUIDelegate:self];
+    self.webView.delegate = self;
+    //    [self.webView setNavigationDelegate:self];
+    //    [self.webView setUIDelegate:self];
     
-    NSString *calendarURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/feed/get?type=calendar"];
-    
+    NSString *calendarURLString = [NSString stringWithFormat:@"%@", CALENDAR_FEED];
     NSURL *calendarURL = [NSURL URLWithString:calendarURLString];
-    
     NSURLRequest *calendarRequest = [NSURLRequest requestWithURL:calendarURL];
-    
     [self.webView loadRequest:calendarRequest];
-    
     [self.webView addObserver:self forKeyPath:@"loading" options:NSKeyValueObservingOptionNew context:nil];
 }
 
@@ -65,16 +61,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)backTapped:(id)sender
 {
