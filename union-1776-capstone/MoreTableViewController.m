@@ -19,7 +19,6 @@
     
     [KeychainHelper printAllAccountsInKeychainInConsole];
     
-    
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
@@ -48,6 +47,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    //Row 0, section 2 is the logout tableViewCell
     NSIndexPath *logOutIndexPath = [NSIndexPath indexPathForRow:0 inSection:2];
     NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
     
@@ -62,7 +62,6 @@
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
         
-    
         UIAlertView *messageAlert = [[UIAlertView alloc]
                                      initWithTitle:@"Message" message:@"You've Logged Out" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         

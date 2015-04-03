@@ -85,6 +85,7 @@
         }
         if ([cookie.name isEqualToString:@"1776dc_uid_secure"]) {
 
+            //This is not being used
             self.cookieValueSecure = cookie.value;
         }
     }
