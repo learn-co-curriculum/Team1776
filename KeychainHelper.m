@@ -13,6 +13,7 @@
 + (void)deleteTheCurrentUserInfoFromKeyChain {
     
     [SSKeychain deletePasswordForService:SERVICE_ID_FOR_KEYCHAIN account:ACCOUNT_ID_FOR_KEYCHAIN];
+    [SSKeychain deletePasswordForService:@"Union" account:@"CurrentUser"];
 }
 
 + (void)setUpCurrentUserInKeyChainWithValueID:(NSString *)valueID {
