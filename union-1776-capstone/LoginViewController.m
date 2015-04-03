@@ -16,6 +16,9 @@
 @property (strong, nonatomic) NSString *cookieValue;
 @property (strong, nonatomic) NSString *cookieValueSecure;
 
+@property (nonatomic) NSInteger loads;
+@property (nonatomic) BOOL firstTimeOver;
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *UIBack;
 - (IBAction)backTapped:(id)sender;
 
@@ -27,6 +30,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.firstTimeOver = NO;
     
     self.UIBack.enabled = NO;
     [self.UIBack setTintColor:[UIColor clearColor]];
@@ -59,6 +64,8 @@
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
     self.UIBack.enabled = self.webView.canGoBack;
+    
+    self.loads++;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -67,32 +74,45 @@
     [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];
     
     //To find the cookie needed to store the 1776dc_uid
-    //    NSHTTPCookie *cookie;
-    //    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    //
-    //    for (cookie in [cookieJar cookies]) {
-    //
-    //        if ([cookie.name isEqualToString:@"1776dc_uid"]) {
-    //
-    //            self.cookieValue = cookie.value;
-    //        }
-    //        if ([cookie.name isEqualToString:@"1776dc_uid_secure"]) {
-    //
-    //            self.cookieValueSecure = cookie.value;
-    //        }
-    //    }
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+
+    for (cookie in [cookieJar cookies]) {
+
+        if ([cookie.name isEqualToString:@"1776dc_uid"]) {
+
+            self.cookieValue = cookie.value;
+        }
+        if ([cookie.name isEqualToString:@"1776dc_uid_secure"]) {
+
+            self.cookieValueSecure = cookie.value;
+        }
+    }
     
     [KeychainHelper setUpCurrentUserInKeyChainWithValueID:self.cookieValue];
     
-    if (webView.canGoBack == YES)
+    NSString *currentURL = webView.request.URL.absoluteString;
+    BOOL onMainPage = [currentURL isEqualToString:DEFAULT_LOGIN_SCREEN_OR_FEED] || [currentURL isEqualToString:[NSString stringWithFormat:@"%@%@",DEFAULT_LOGIN_SCREEN_OR_FEED,@"#"]];
+    
+    self.loads--;
+    
+    if (self.firstTimeOver)
     {
-        self.UIBack.enabled = YES;
-        [self.UIBack setTintColor:[UIColor blueColor]];
+        if (webView.canGoBack == YES && !onMainPage)
+        {
+            self.UIBack.enabled = YES;
+            [self.UIBack setTintColor:[UIColor blueColor]];
+        }
+        else
+        {
+            self.UIBack.enabled = NO;
+            [self.UIBack setTintColor:[UIColor clearColor]];
+        }
     }
-    else
+    
+    if (self.cookieValue && self.loads < 1 && !self.firstTimeOver)
     {
-        self.UIBack.enabled = NO;
-        [self.UIBack setTintColor:[UIColor clearColor]];
+        self.firstTimeOver = YES;
     }
 }
 
