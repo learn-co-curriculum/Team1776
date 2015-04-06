@@ -27,6 +27,17 @@
 @implementation LoginViewController
 
 
+- (void)hideTheTabBar {
+    
+    //Tabbar:
+    self.tabBarController.tabBar.hidden = YES;
+}
+
+- (void)unHideTheBar {
+    
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -39,6 +50,14 @@
     [self setUpOurInitialView];
     
     [self requestTheDefaulLoginScreen];
+    
+    [self hideTheTabBar];
+    
+    if (self.cookieValue) {
+        
+        [self unHideTheBar];
+    }
+    
     
 }
 
@@ -103,6 +122,11 @@
 
     NSString *currentURL = webView.request.URL.absoluteString;
     BOOL onMainPage = [currentURL isEqualToString:DEFAULT_LOGIN_SCREEN_OR_FEED] || [currentURL isEqualToString:[NSString stringWithFormat:@"%@%@",DEFAULT_LOGIN_SCREEN_OR_FEED,@"#"]];
+    
+    if (self.cookieValue ) {
+        
+        [self unHideTheBar];
+    }
     
     self.loads--;
     
