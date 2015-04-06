@@ -115,6 +115,7 @@
     {
         self.firstTimeOver = YES;
     }
+    
 }
 
 - (void)setUpOurInitialView {

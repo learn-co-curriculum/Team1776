@@ -35,13 +35,13 @@
     [APIClient loadTheCalendarFeedWithWebView:self.webView];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    
-    [APIClient loadTheCalendarFeedWithWebView:self.webView];
-
-    
-    
-}
+//-(void)viewWillAppear:(BOOL)animated {
+//    
+//    [APIClient loadTheCalendarFeedWithWebView:self.webView];
+//
+//    
+//    
+//}
 
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
