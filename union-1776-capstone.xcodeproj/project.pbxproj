@@ -316,7 +316,7 @@
 				TargetAttributes = {
 					BCF997B31AC9DCD300D38FF9 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 9RXLE5FXUN;
+						DevelopmentTeam = 3E2QGNXM7N;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -328,7 +328,7 @@
 					};
 					BCF997CC1AC9DCD400D38FF9 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 9RXLE5FXUN;
+						DevelopmentTeam = 3E2QGNXM7N;
 						TestTargetID = BCF997B31AC9DCD300D38FF9;
 					};
 				};
@@ -562,7 +562,7 @@
 				INFOPLIST_FILE = "union-1776-capstone/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b7b2eae1-2d14-4554-907f-81b55571c9c0";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -580,7 +580,7 @@
 				INFOPLIST_FILE = "union-1776-capstone/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b7b2eae1-2d14-4554-907f-81b55571c9c0";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
