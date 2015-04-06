@@ -35,6 +35,14 @@
     [APIClient loadTheCalendarFeedWithWebView:self.webView];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    
+    [APIClient loadTheCalendarFeedWithWebView:self.webView];
+
+    
+    
+}
+
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
     self.UIBack.enabled = self.webView.canGoBack;

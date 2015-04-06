@@ -31,6 +31,12 @@
     [APIClient loadTheProfilePageWithUserIDforWebView:self.webView];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    
+    [APIClient loadTheProfilePageWithUserIDforWebView:self.webView];
+
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

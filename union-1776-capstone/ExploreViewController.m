@@ -38,6 +38,14 @@
     self.UIBack.enabled = self.webView.canGoBack;
 }
 
+
+-(void)viewDidAppear:(BOOL)animated {
+    
+    [APIClient loadTheExplorerFeedWitHWebView:self.webView];
+
+    
+}
+
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     
