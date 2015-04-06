@@ -13,7 +13,14 @@
 extern NSString *const DEFAULT_LOGIN_SCREEN_OR_FEED;
 extern NSString *const CALENDAR_FEED;
 extern NSString *const EXPLORE_FEED;
+
 extern NSString *const SERVICE_ID_FOR_KEYCHAIN;
 extern NSString *const ACCOUNT_ID_FOR_KEYCHAIN;
+
+extern NSString *const DEVICE_ID_FOR_KEYCHAIN;
+extern NSString *const ACCOUNT_ID_FOR_DEVICEID;
+
+extern NSString *const SECURE_ID_FOR_KEYCHAIN;
+extern NSString *const ACCOUNT_ID_FOR_SECUREID;
 
 @end

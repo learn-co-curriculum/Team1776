@@ -13,7 +13,7 @@
 + (void)deleteTheCurrentUserInfoFromKeyChain {
     
     [SSKeychain deletePasswordForService:SERVICE_ID_FOR_KEYCHAIN account:ACCOUNT_ID_FOR_KEYCHAIN];
-    [SSKeychain deletePasswordForService:@"Union" account:@"CurrentUser"];
+    [SSKeychain deletePasswordForService:DEVICE_ID_FOR_KEYCHAIN account:ACCOUNT_ID_FOR_DEVICEID];
 }
 
 + (void)setUpCurrentUserInKeyChainWithValueID:(NSString *)valueID {
@@ -22,7 +22,7 @@
                  forService:SERVICE_ID_FOR_KEYCHAIN
                     account:ACCOUNT_ID_FOR_KEYCHAIN
                       error:nil];
-
+    
 }
 
 + (void)printAllAccountsInKeychainInConsole {
@@ -33,6 +33,33 @@
 + (NSString *)returnValueIDForCurrentUser {
     
     return [SSKeychain passwordForService:SERVICE_ID_FOR_KEYCHAIN account:ACCOUNT_ID_FOR_KEYCHAIN];
+    
+}
+
++ (void)storeDeviceIDintoPhone:(NSString *)deviceID {
+    
+    [SSKeychain setPassword:deviceID
+                 forService:DEVICE_ID_FOR_KEYCHAIN
+                    account:ACCOUNT_ID_FOR_DEVICEID
+                      error:nil];
+}
+
++ (NSString *)returnDeviceIDForCurrentUser {
+    
+    return [SSKeychain passwordForService:DEVICE_ID_FOR_KEYCHAIN account:ACCOUNT_ID_FOR_DEVICEID];
+}
+
++ (void)storeSecureIDintoPhone:(NSString *)secureID {
+    
+    [SSKeychain setPassword:secureID
+                 forService:SECURE_ID_FOR_KEYCHAIN
+                    account:ACCOUNT_ID_FOR_SECUREID
+                      error:nil];
+}
+
++ (NSString *)returnSecureIDforPhone {
+    
+    return [SSKeychain passwordForService:SECURE_ID_FOR_KEYCHAIN account:ACCOUNT_ID_FOR_SECUREID];
     
 }
 

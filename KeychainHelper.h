@@ -17,5 +17,9 @@
 + (void)setUpCurrentUserInKeyChainWithValueID:(NSString *)valueID;
 + (void)printAllAccountsInKeychainInConsole;
 + (NSString *)returnValueIDForCurrentUser;
++ (void)storeDeviceIDintoPhone:(NSString *)deviceID;
++ (NSString *)returnDeviceIDForCurrentUser;
++ (void)storeSecureIDintoPhone:(NSString *)secureID;
++ (NSString *)returnSecureIDforPhone;
 
 @end

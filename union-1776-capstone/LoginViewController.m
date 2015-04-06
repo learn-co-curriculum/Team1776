@@ -73,7 +73,7 @@
     //To disable horizontal scrolling
     [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];
     
-    //To find the cookie needed to store the 1776dc_uid
+    //To find the cookie needed to store the 1776dc_uid and 1776dc_uid_secure
     NSHTTPCookie *cookie;
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     
@@ -90,8 +90,15 @@
         }
     }
     
+    //Store the valueID in keychain
     [KeychainHelper setUpCurrentUserInKeyChainWithValueID:self.cookieValue];
     
+    //To store the secureID in keychain
+    [KeychainHelper storeSecureIDintoPhone:self.cookieValueSecure];
+    
+    //To store the DeviceID and store it into keychain
+    [KeychainHelper storeDeviceIDintoPhone:[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
+
     NSString *currentURL = webView.request.URL.absoluteString;
     BOOL onMainPage = [currentURL isEqualToString:DEFAULT_LOGIN_SCREEN_OR_FEED] || [currentURL isEqualToString:[NSString stringWithFormat:@"%@%@",DEFAULT_LOGIN_SCREEN_OR_FEED,@"#"]];
     
