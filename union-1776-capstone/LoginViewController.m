@@ -76,15 +76,15 @@
     //To find the cookie needed to store the 1776dc_uid
     NSHTTPCookie *cookie;
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-
+    
     for (cookie in [cookieJar cookies]) {
-
+        
         if ([cookie.name isEqualToString:@"1776dc_uid"]) {
-
+            
             self.cookieValue = cookie.value;
         }
         if ([cookie.name isEqualToString:@"1776dc_uid_secure"]) {
-
+            
             //This is not being used
             self.cookieValueSecure = cookie.value;
         }
