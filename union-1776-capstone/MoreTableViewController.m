@@ -77,6 +77,8 @@
         UIStoryboard *mainSB = self.storyboard;
         UINavigationController *navController = [mainSB instantiateInitialViewController];
         
+        [self.view.subviews makeObjectsPerformSelector:@selector(viewDidLoad)];
+        
         [[UIApplication sharedApplication].delegate.window setRootViewController:navController];
     }
 }

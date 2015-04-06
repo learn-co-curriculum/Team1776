@@ -40,8 +40,6 @@
     
     [self requestTheDefaulLoginScreen];
     
-    NSLog(@"The value for the person logging in is : %@", [KeychainHelper returnValueIDForCurrentUser]);
-    
 }
 
 - (void)dataFromAppDelegate:(NSDictionary *)user1776Info {
@@ -69,6 +67,10 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    
+    NSLog(@"WORKING!!!!!");
+    
     
     //To disable horizontal scrolling
     [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];
@@ -108,12 +110,19 @@
     {
         if (webView.canGoBack == YES && !onMainPage)
         {
+            
+            NSLog(@"GETTING CALLED???");
+            
+            
             self.UIBack.enabled = YES;
             [self.UIBack setTintColor:[UIColor blueColor]];
             
         }
         else
         {
+            
+            NSLog(@"IS THIS GETTING CALLED?!!!!");
+            
             self.UIBack.enabled = NO;
             [self.UIBack setTintColor:[UIColor clearColor]];
         }
@@ -123,6 +132,7 @@
     {
         self.firstTimeOver = YES;
     }
+    
     
     
     
