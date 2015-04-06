@@ -11,6 +11,8 @@
 
 @interface AppDelegate ()
 
+@property (strong, nonatomic) UIStoryboard *initalStoryboard;
+
 @end
 
 @implementation AppDelegate

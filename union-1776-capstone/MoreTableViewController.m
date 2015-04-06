@@ -68,8 +68,15 @@
         // Display Alert Message
         [messageAlert show];
         
+        for (UIView *view in self.view.subviews) {
+            
+            [view removeFromSuperview];
+        }
+        
+        
         UIStoryboard *mainSB = self.storyboard;
         UINavigationController *navController = [mainSB instantiateInitialViewController];
+        
         [[UIApplication sharedApplication].delegate.window setRootViewController:navController];
     }
 }

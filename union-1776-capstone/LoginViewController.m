@@ -110,6 +110,7 @@
         {
             self.UIBack.enabled = YES;
             [self.UIBack setTintColor:[UIColor blueColor]];
+            
         }
         else
         {
@@ -122,6 +123,10 @@
     {
         self.firstTimeOver = YES;
     }
+    
+    
+    
+    
 }
 
 - (void)setUpOurInitialView {

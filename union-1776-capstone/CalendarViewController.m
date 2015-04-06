@@ -26,10 +26,6 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"This should be the Device ID:%@", [KeychainHelper returnDeviceIDForCurrentUser]);
-    NSLog(@"This should be the Account ID:%@", [KeychainHelper returnValueIDForCurrentUser]);
-    NSLog(@"This should be the secure ID:%@", [KeychainHelper returnSecureIDforPhone]);
-    
     self.UIBack.enabled = NO;
     [self.UIBack setTintColor:[UIColor clearColor]];
     
@@ -40,11 +36,11 @@
     [APIClient loadTheCalendarFeedWithWebView:self.webView];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    
-    [APIClient loadTheCalendarFeedWithWebView:self.webView];
-
-}
+//-(void)viewDidAppear:(BOOL)animated {
+//    
+//    [APIClient loadTheCalendarFeedWithWebView:self.webView];
+//
+//}
 
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {

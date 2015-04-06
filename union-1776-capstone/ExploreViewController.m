@@ -39,12 +39,10 @@
 }
 
 
--(void)viewDidAppear:(BOOL)animated {
-    
-    [APIClient loadTheExplorerFeedWitHWebView:self.webView];
-
-    
-}
+//-(void)viewDidAppear:(BOOL)animated {
+//    
+//    [APIClient loadTheExplorerFeedWitHWebView:self.webView];
+//}
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
