@@ -24,6 +24,8 @@
 		BCA479DD1ACDD8980030AD8C /* home-tab2.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA479DC1ACDD8980030AD8C /* home-tab2.png */; };
 		BCA479DF1ACDD8D60030AD8C /* calendar-tab.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA479DE1ACDD8D60030AD8C /* calendar-tab.png */; };
 		BCA479E31ACDDB700030AD8C /* eye-tab.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA479E21ACDDB700030AD8C /* eye-tab.png */; };
+		BCB83F311AD3188600C4A117 /* UnionAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB83F301AD3188600C4A117 /* UnionAPIClient.m */; };
+		BCB83F341AD31B8E00C4A117 /* UnionUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB83F331AD31B8E00C4A117 /* UnionUser.m */; };
 		BCF997BA1AC9DCD300D38FF9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997B91AC9DCD300D38FF9 /* main.m */; };
 		BCF997BD1AC9DCD300D38FF9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997BC1AC9DCD300D38FF9 /* AppDelegate.m */; };
 		BCF997C31AC9DCD400D38FF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF997C11AC9DCD400D38FF9 /* Main.storyboard */; };
@@ -84,6 +86,10 @@
 		BCA479DC1ACDD8980030AD8C /* home-tab2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-tab2.png"; path = "../home-tab2.png"; sourceTree = "<group>"; };
 		BCA479DE1ACDD8D60030AD8C /* calendar-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-tab.png"; sourceTree = "<group>"; };
 		BCA479E21ACDDB700030AD8C /* eye-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye-tab.png"; sourceTree = "<group>"; };
+		BCB83F2F1AD3188600C4A117 /* UnionAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnionAPIClient.h; sourceTree = "<group>"; };
+		BCB83F301AD3188600C4A117 /* UnionAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnionAPIClient.m; sourceTree = "<group>"; };
+		BCB83F321AD31B8E00C4A117 /* UnionUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnionUser.h; sourceTree = "<group>"; };
+		BCB83F331AD31B8E00C4A117 /* UnionUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnionUser.m; sourceTree = "<group>"; };
 		BCF997B41AC9DCD300D38FF9 /* union-1776-capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "union-1776-capstone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF997B81AC9DCD300D38FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCF997B91AC9DCD300D38FF9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -196,6 +202,10 @@
 				7D27D52A1ACB094A003ABDAE /* Constants.m */,
 				BCF997BB1AC9DCD300D38FF9 /* AppDelegate.h */,
 				BCF997BC1AC9DCD300D38FF9 /* AppDelegate.m */,
+				BCB83F2F1AD3188600C4A117 /* UnionAPIClient.h */,
+				BCB83F301AD3188600C4A117 /* UnionAPIClient.m */,
+				BCB83F321AD31B8E00C4A117 /* UnionUser.h */,
+				BCB83F331AD31B8E00C4A117 /* UnionUser.m */,
 				7D26EBD61ACC7B8D00ADF09B /* KeychainHelper.h */,
 				7D26EBD71ACC7B8D00ADF09B /* KeychainHelper.m */,
 				7D0432E21ACAE5CD00EDCE3E /* LoginViewController.h */,
@@ -425,6 +435,8 @@
 				A09BDBD81ACC2E1300254711 /* CalendarViewController.m in Sources */,
 				BCF997BA1AC9DCD300D38FF9 /* main.m in Sources */,
 				7D27D52B1ACB094A003ABDAE /* Constants.m in Sources */,
+				BCB83F311AD3188600C4A117 /* UnionAPIClient.m in Sources */,
+				BCB83F341AD31B8E00C4A117 /* UnionUser.m in Sources */,
 				A09BDBE71ACC71BE00254711 /* ProfileViewController.m in Sources */,
 				A09BDBEA1ACC742100254711 /* UpdateProfileViewController.m in Sources */,
 			);

@@ -9,6 +9,9 @@
 #import "LoginViewController.h"
 #import "Constants.h"
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <AFNetworking.h>
+#import "UnionAPIClient.h"
 
 @interface LoginViewController ()
 @property (strong, nonatomic) UIWebView *webView;
@@ -78,8 +81,8 @@
     }
 }
 
--(void)webViewDidStartLoad:(UIWebView *)webView
-{
+-(void)webViewDidStartLoad:(UIWebView *)webView {
+    
     self.UIBack.enabled = self.webView.canGoBack;
     
     self.loads++;
@@ -87,9 +90,7 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     
-    
     NSLog(@"WORKING!!!!!");
-    
     
     //To disable horizontal scrolling
     [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];
@@ -126,6 +127,8 @@
     if (self.cookieValue ) {
         
         [self unHideTheBar];
+        [LoginViewController saveUserIDtoParse];
+        
     }
     
     self.loads--;
@@ -158,10 +161,23 @@
     }
     
     
+}
+
++ (void)saveUserIDtoParse {
     
-    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+
+    [currentInstallation setValue: [KeychainHelper returnValueIDForCurrentUser] forKey:@"userID_1776"];
+    [currentInstallation saveInBackground];
+    NSString *test = @"law";
+//    [[UnionAPIClient sharedProxy] getNotificationsForUserID:[KeychainHelper returnValueIDForCurrentUser] CompletionHandler:^(UnionUser *unionUser) {
+        [currentInstallation setValue:test forKey:@"notificationChannels"];
+        [currentInstallation saveInBackground];
+        
+//    }];
     
 }
+
 
 - (void)setUpOurInitialView {
     
