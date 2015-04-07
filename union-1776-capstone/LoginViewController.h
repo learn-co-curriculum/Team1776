@@ -6,13 +6,8 @@
 //  Copyright (c) 2015 Gamesmith, LLC. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <WebKit/WebKit.h>
-#import <SSKeychain.h>
-#import <SSKeychainQuery.h>
-#import "KeychainHelper.h"
-#import "APIClient.h"
+#import "AppDelegate.h"
 
-@interface LoginViewController : UIViewController <UIWebViewDelegate>
+@interface LoginViewController : UIViewController <UIWebViewDelegate, AppDelegateDelegate>
 
 @end
