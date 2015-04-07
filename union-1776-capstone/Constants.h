@@ -10,6 +10,7 @@
 
 @interface Constants : NSObject
 
+extern NSString *const DEFAULT_LOGIN_SCREEN;
 extern NSString *const DEFAULT_LOGIN_SCREEN_OR_FEED;
 extern NSString *const CALENDAR_FEED;
 extern NSString *const EXPLORE_FEED;

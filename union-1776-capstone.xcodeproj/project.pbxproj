@@ -14,6 +14,7 @@
 		7D27D52F1ACB1E27003ABDAE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D27D52E1ACB1E27003ABDAE /* Accounts.framework */; };
 		7DE8BD041ACD927300D86708 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8BD031ACD927300D86708 /* APIClient.m */; };
 		9FABD12C1AD4267D00C824AD /* ParseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FABD12B1AD4267D00C824AD /* ParseAPIClient.m */; };
+		A01D37B81AD44AF9008E9742 /* UnionTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01D37B71AD44AF9008E9742 /* UnionTabBarViewController.m */; };
 		A09BDBD81ACC2E1300254711 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBD71ACC2E1300254711 /* CalendarViewController.m */; };
 		A09BDBDB1ACC2E4500254711 /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBDA1ACC2E4500254711 /* ExploreViewController.m */; };
 		A09BDBE71ACC71BE00254711 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBE61ACC71BE00254711 /* ProfileViewController.m */; };
@@ -73,6 +74,8 @@
 		91CBAB3A7446AC923FABB597 /* libPods-union-1776-capstone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-union-1776-capstone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FABD12A1AD4267D00C824AD /* ParseAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseAPIClient.h; sourceTree = "<group>"; };
 		9FABD12B1AD4267D00C824AD /* ParseAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseAPIClient.m; sourceTree = "<group>"; };
+		A01D37B61AD44AF9008E9742 /* UnionTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnionTabBarViewController.h; sourceTree = "<group>"; };
+		A01D37B71AD44AF9008E9742 /* UnionTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnionTabBarViewController.m; sourceTree = "<group>"; };
 		A09BDBD61ACC2E1300254711 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		A09BDBD71ACC2E1300254711 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		A09BDBD91ACC2E4500254711 /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
@@ -223,6 +226,8 @@
 				A09BDBEC1ACC7CE200254711 /* MoreTableViewController.m */,
 				A09BDBE51ACC71BD00254711 /* ProfileViewController.h */,
 				A09BDBE61ACC71BE00254711 /* ProfileViewController.m */,
+				A01D37B61AD44AF9008E9742 /* UnionTabBarViewController.h */,
+				A01D37B71AD44AF9008E9742 /* UnionTabBarViewController.m */,
 				A09BDBE81ACC742100254711 /* UpdateProfileViewController.h */,
 				A09BDBE91ACC742100254711 /* UpdateProfileViewController.m */,
 				BCF997C11AC9DCD400D38FF9 /* Main.storyboard */,
@@ -435,6 +440,7 @@
 				7D0432E41ACAE5CD00EDCE3E /* LoginViewController.m in Sources */,
 				A09BDBED1ACC7CE200254711 /* MoreTableViewController.m in Sources */,
 				9FABD12C1AD4267D00C824AD /* ParseAPIClient.m in Sources */,
+				A01D37B81AD44AF9008E9742 /* UnionTabBarViewController.m in Sources */,
 				A09BDBDB1ACC2E4500254711 /* ExploreViewController.m in Sources */,
 				BCF997BD1AC9DCD300D38FF9 /* AppDelegate.m in Sources */,
 				7DE8BD041ACD927300D86708 /* APIClient.m in Sources */,

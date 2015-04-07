@@ -18,9 +18,6 @@
 @property (strong, nonatomic) NSString *cookieValue;
 @property (strong, nonatomic) NSString *cookieValueSecure;
 
-@property (nonatomic) NSInteger loads;
-@property (nonatomic) BOOL firstTimeOver;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *UIBack;
 
 
@@ -35,7 +32,6 @@
 - (void) unHideTheTabBar;
 - (BOOL) isLoggedIn;
 
-
 - (IBAction)backTapped:(id)sender;
 
 @end
@@ -47,8 +43,6 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    self.firstTimeOver = NO;
     
     self.UIBack.enabled = NO;
     [self.UIBack setTintColor:[UIColor clearColor]];
@@ -85,7 +79,6 @@
     }
 }
 
-
 #pragma mark - UIWebViewDelegate Methods
 
 -(void)webViewDidStartLoad:(UIWebView *)webView {
@@ -94,8 +87,6 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
-    NSLog(@"WORKING!!!!!");
     
     //To disable horizontal scrolling
     [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];
@@ -142,10 +133,26 @@
 
 #pragma mark - Helper Methods
 
+-(void)reloadWebView
+{
+    if ( [self onMainPage:self.webView.request.URL] )
+    {
+        NSString *script = @"$('html, body').animate({scrollTop:0}, 'fast')";
+        [self.webView stringByEvaluatingJavaScriptFromString:script];
+    }
+    else
+    {
+        [self requestTheDefaulLoginScreen];
+    }
+    
+}
+
 - (BOOL) onMainPage:(NSURL *)currentURL
 {
     NSString *urlString = currentURL.absoluteString;
-    return [urlString isEqualToString:DEFAULT_LOGIN_SCREEN_OR_FEED] || [urlString isEqualToString:[NSString stringWithFormat:@"%@%@",DEFAULT_LOGIN_SCREEN_OR_FEED,@"#"]];
+    return [urlString isEqualToString:DEFAULT_LOGIN_SCREEN_OR_FEED] ||
+           [urlString isEqualToString:[NSString stringWithFormat:@"%@%@",DEFAULT_LOGIN_SCREEN_OR_FEED,@"#"]] ||
+           [urlString isEqualToString:DEFAULT_LOGIN_SCREEN];
     
 }
 

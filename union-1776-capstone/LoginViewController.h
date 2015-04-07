@@ -10,4 +10,6 @@
 
 @interface LoginViewController : UIViewController <UIWebViewDelegate, AppDelegateDelegate>
 
+-(void)reloadWebView;
+
 @end
