@@ -22,7 +22,7 @@
 //    3f7375a1-d70b-11e4-bf54-06867e4d05a8
     
 
-    NSString *defaultLoginURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/getAttributeCollection?userId=3f7375a1-d70b-11e4-bf54-06867e4d05a8&categorizationName=NotificationChannels"];
+    NSString *defaultLoginURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/getAttributeCollection?userId=25f76980-d71a-11e4-bf54-06867e4d05a8&categorizationName=NotificationChannels"];
 //    NSString *defaultLoginURLString = [NSString stringWithFormat:@"%@", DEFAULT_LOGIN_SCREEN_OR_FEED];
 
     
