@@ -202,18 +202,105 @@
 
 - (void)hideTheTabBar {
     
-    //Tabbar:
-    self.tabBarController.tabBar.hidden = YES;
+    self.hidesBottomBarWhenPushed = NO;
+    
+//    [self setHideTabBar:YES animated:YES];
+    
+    [self.tabBarController.tabBar setTranslucent:YES];
+    [self.tabBarController.tabBar setHidden:YES];
+//    [self hideTabBar:self.tabBarController];
+    
 }
 
 - (void)unHideTheTabBar {
     
-    self.tabBarController.tabBar.hidden = NO;
+//    [self setHideTabBar:NO animated:YES];
+    
+    
+    [self.tabBarController.tabBar setTranslucent:NO];
+    [self.tabBarController.tabBar setHidden:NO];
+    
+//    [self showTabBar:self.tabBarController];
+    
 }
 
 - (BOOL) isLoggedIn
 {
     return self.cookieValue != nil;
 }
+
+- (void) hideTabBar:(UITabBarController *) tabbarcontroller
+{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.5];
+    float fHeight = screenRect.size.height;
+    if(  UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) )
+    {
+        fHeight = screenRect.size.width;
+    }
+    
+    for(UIView *view in tabbarcontroller.view.subviews)
+    {
+        if([view isKindOfClass:[UITabBar class]])
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, fHeight, view.frame.size.width, view.frame.size.height)];
+        }
+        else
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, fHeight)];
+            view.backgroundColor = [UIColor blackColor];
+        }
+    }
+    [UIView commitAnimations];
+}
+
+
+
+- (void) showTabBar:(UITabBarController *) tabbarcontroller
+{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    float fHeight = screenRect.size.height - tabbarcontroller.tabBar.frame.size.height;
+    
+    if(  UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) )
+    {
+        fHeight = screenRect.size.width - tabbarcontroller.tabBar.frame.size.height;
+    }
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.5];
+    for(UIView *view in tabbarcontroller.view.subviews)
+    {
+        if([view isKindOfClass:[UITabBar class]])
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, fHeight, view.frame.size.width, view.frame.size.height)];
+        }
+        else
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, fHeight)];
+        }
+    }
+    [UIView commitAnimations];
+}
+
+- (void)setHideTabBar:(BOOL)hide animated:(BOOL)animated {
+    UIViewController *selectedViewController = self.tabBarController;
+    if ([selectedViewController isKindOfClass:[UINavigationController class]])
+        selectedViewController = ((UINavigationController *)selectedViewController).visibleViewController;
+    __weak __typeof(self) weakSelf = self;
+    
+    void (^animations)(void) = ^{
+        selectedViewController.edgesForExtendedLayout = UIRectEdgeAll;
+        [selectedViewController setExtendedLayoutIncludesOpaqueBars:hide];
+        weakSelf.navigationController.tabBarController.tabBar.hidden = hide;
+        [selectedViewController.navigationController.view layoutSubviews];
+    };
+    
+    [UIView animateWithDuration:animated ? UINavigationControllerHideShowBarDuration : 1 animations:animations];
+}
+
+
+
 
 @end
