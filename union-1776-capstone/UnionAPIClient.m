@@ -23,21 +23,23 @@
     
 }
 
-- (void)getNotificationsForUserID: (NSString *)userID CompletionHandler:(void (^)(UnionUser *unionUser))completionBlock {
-    NSString *unionURL = @"http://dev.1776union.io/union/user/getAttributeCollection?";
+- (void)getNotificationsForUserID: (NSString *)userID
+                CompletionHandler:(void (^)(UnionUser *unionUser))completionBlock {
+    
+    NSString *unionNotificationsURL = @"http://dev.1776union.io/union/user/getAttributeCollection?";
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSDictionary *urlParams = @{@"userID" : userID, @"categorizationName" : @"NotificationChannels"};
     
-    [manager GET:unionURL parameters:urlParams success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"I am accessing Union's API");
+    [manager GET:unionNotificationsURL parameters:urlParams success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"I am accessing Union Notifications API");
         
         completionBlock([UnionUser createUnionUser:responseObject]);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"Fail to access Union's API");
-              }];
+        NSLog(@"Failed to access Union Notifications API");
+    }];
 }
 
 @end

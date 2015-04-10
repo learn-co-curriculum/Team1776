@@ -66,12 +66,15 @@
 - (void)dataFromAppDelegate:(NSDictionary *)user1776Info {
     
     self.user1776 = user1776Info;
+    //its calling viewdidload before this
+    
 }
 
 - (void)requestTheDefaulLoginScreen {
     
     if (self.user1776) {
         [APIClient loadTheFeedWithNotification:self.user1776 withWebView:self.webView];
+        [ParseAPIClient saveUserIDtoParse];
     }
     else {
         
@@ -100,7 +103,7 @@
 
     if ([self isLoggedIn] ) {
         [self unHideTheTabBar];
-        [ParseAPIClient saveUserIDtoParse];
+//        [ParseAPIClient saveUserIDtoParse];
     }
     
     
