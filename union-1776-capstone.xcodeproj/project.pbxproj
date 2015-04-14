@@ -15,6 +15,7 @@
 		7DE8BD041ACD927300D86708 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8BD031ACD927300D86708 /* APIClient.m */; };
 		9FABD12C1AD4267D00C824AD /* ParseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FABD12B1AD4267D00C824AD /* ParseAPIClient.m */; };
 		A01D37B81AD44AF9008E9742 /* UnionTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01D37B71AD44AF9008E9742 /* UnionTabBarViewController.m */; };
+		A0554DEE1ADD8AE20091E4BB /* NSURLConnectionClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A0554DED1ADD8AE20091E4BB /* NSURLConnectionClient.m */; };
 		A09BDBD81ACC2E1300254711 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBD71ACC2E1300254711 /* CalendarViewController.m */; };
 		A09BDBDB1ACC2E4500254711 /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBDA1ACC2E4500254711 /* ExploreViewController.m */; };
 		A09BDBE71ACC71BE00254711 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBE61ACC71BE00254711 /* ProfileViewController.m */; };
@@ -76,6 +77,8 @@
 		9FABD12B1AD4267D00C824AD /* ParseAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseAPIClient.m; sourceTree = "<group>"; };
 		A01D37B61AD44AF9008E9742 /* UnionTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnionTabBarViewController.h; sourceTree = "<group>"; };
 		A01D37B71AD44AF9008E9742 /* UnionTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnionTabBarViewController.m; sourceTree = "<group>"; };
+		A0554DEC1ADD8AE20091E4BB /* NSURLConnectionClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLConnectionClient.h; sourceTree = "<group>"; };
+		A0554DED1ADD8AE20091E4BB /* NSURLConnectionClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLConnectionClient.m; sourceTree = "<group>"; };
 		A09BDBD61ACC2E1300254711 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		A09BDBD71ACC2E1300254711 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		A09BDBD91ACC2E4500254711 /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				7D26EBD71ACC7B8D00ADF09B /* KeychainHelper.m */,
 				7D0432E21ACAE5CD00EDCE3E /* LoginViewController.h */,
 				7D0432E31ACAE5CD00EDCE3E /* LoginViewController.m */,
+				A0554DEC1ADD8AE20091E4BB /* NSURLConnectionClient.h */,
+				A0554DED1ADD8AE20091E4BB /* NSURLConnectionClient.m */,
 				9FABD12A1AD4267D00C824AD /* ParseAPIClient.h */,
 				9FABD12B1AD4267D00C824AD /* ParseAPIClient.m */,
 				A09BDBD61ACC2E1300254711 /* CalendarViewController.h */,
@@ -447,6 +452,7 @@
 				A09BDBD81ACC2E1300254711 /* CalendarViewController.m in Sources */,
 				BCF997BA1AC9DCD300D38FF9 /* main.m in Sources */,
 				7D27D52B1ACB094A003ABDAE /* Constants.m in Sources */,
+				A0554DEE1ADD8AE20091E4BB /* NSURLConnectionClient.m in Sources */,
 				BCB83F311AD3188600C4A117 /* UnionAPIClient.m in Sources */,
 				BCB83F341AD31B8E00C4A117 /* UnionUser.m in Sources */,
 				A09BDBE71ACC71BE00254711 /* ProfileViewController.m in Sources */,

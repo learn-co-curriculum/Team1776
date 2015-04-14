@@ -20,4 +20,6 @@
 + (void)loadTheProfilePageWithUserIDforWebView:(UIWebView *)webview;
 + (void)loadTheUpdateProfilePageWithUserIDforWebView:(UIWebView *)webview;
 
++ (void)testConnection:(NSURLRequest *)urlRequest forWebView:(UIWebView *)webview;
+
 @end
