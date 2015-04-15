@@ -9,20 +9,29 @@
 #import "ParseAPIClient.h"
 #import <Parse/Parse.h>
 #import "KeychainHelper.h"
+#import "UnionUser.h"
+#import "UnionAPIClient.h"
 
 @implementation ParseAPIClient
+
 + (void)saveUserIDtoParse {
     
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    NSString *userID = [KeychainHelper returnValueIDForCurrentUser];
+    [currentInstallation setValue: userID forKey:@"userID_1776"];
+    [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded) {
+        [[UnionAPIClient sharedProxy] getNotificationsForUserID:userID CompletionHandler:^(UnionUser *unionUser) {
+            [currentInstallation setValue:unionUser.notificationChannels forKey:@"notificationChannels"];
+            [currentInstallation saveInBackground];
+            
+        }];
+        }
+        
+    }];
     
-    [currentInstallation setValue: [KeychainHelper returnValueIDForCurrentUser] forKey:@"userID_1776"];
-    [currentInstallation saveInBackground];
-    NSString *test = @"law";
-    //    [[UnionAPIClient sharedProxy] getNotificationsForUserID:[KeychainHelper returnValueIDForCurrentUser] CompletionHandler:^(UnionUser *unionUser) {
-    [currentInstallation setValue:test forKey:@"notificationChannels"];
-    [currentInstallation saveInBackground];
     
-    //    }];
     
 }
 @end

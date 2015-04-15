@@ -9,6 +9,7 @@
 #import "UnionAPIClient.h"
 #import <AFNetworking.h>
 #import "UnionUser.h"
+#import "Constants.h"
 
 @implementation UnionAPIClient
 
@@ -23,21 +24,37 @@
     
 }
 
-- (void)getNotificationsForUserID: (NSString *)userID CompletionHandler:(void (^)(UnionUser *unionUser))completionBlock {
-    NSString *unionURL = @"http://dev.1776union.io/union/user/getAttributeCollection?";
+- (void)getNotificationsForUserID: (NSString *)userID
+                CompletionHandler:(void (^)(UnionUser *unionUser))completionBlock {
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    //    union/user/getAttributeCollection?userId=3f7375a1-d70b-11e4-bf54-06867e4d05a8&categorizationName=NotificationChannels
     
-    NSDictionary *urlParams = @{@"userID" : userID, @"categorizationName" : @"NotificationChannels"};
+    //    "http://dev.1776union.io/union/user/getAttributeCollection?userId=3f7375a1-d70b-11e4-bf54-06867e4d05a8&categorizationName=NotificationChannels
+    //    3f7375a1-d70b-11e4-bf54-06867e4d05a8
     
-    [manager GET:unionURL parameters:urlParams success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"I am accessing Union's API");
-        
-        completionBlock([UnionUser createUnionUser:responseObject]);
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"Fail to access Union's API");
-              }];
+    //
+        NSString *defaultLoginURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/getAttributeCollection?userId=%@&categorizationName=NotificationChannels", userID];
+    
+//    NSString *defaultLoginURLString = [NSString stringWithFormat:@"%@", DEFAULT_LOGIN_SCREEN_OR_FEED];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    [manager GET:defaultLoginURLString
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"I am accessing Union Notifications API");
+             
+             completionBlock([UnionUser createUnionUser:responseObject]);
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+         }];
+    
 }
 
 @end

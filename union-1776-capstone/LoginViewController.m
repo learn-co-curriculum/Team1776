@@ -49,6 +49,8 @@
     
     [self setUpOurInitialView];
     
+    
+    
     [self requestTheDefaulLoginScreen];
     
     if ([self isLoggedIn]) {
@@ -56,6 +58,8 @@
     } else
     {
         [self hideTheTabBar];
+  
+        
     }
     
     
@@ -66,6 +70,9 @@
 - (void)dataFromAppDelegate:(NSDictionary *)user1776Info {
     
     self.user1776 = user1776Info;
+    
+//    [self requestTheDefaulLoginScreen];
+    
 }
 
 - (void)requestTheDefaulLoginScreen {
@@ -73,6 +80,7 @@
     if (self.user1776)
     {
         [APIClient loadTheFeedWithNotification:self.user1776 withWebView:self.webView];
+        
     }
     else
     {
@@ -85,6 +93,10 @@
 -(void)webViewDidStartLoad:(UIWebView *)webView {
     
     self.UIBack.enabled = self.webView.canGoBack;
+    if ([self isLoggedIn]) {
+        [ParseAPIClient saveUserIDtoParse];
+        
+    }
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -103,7 +115,7 @@
 
     if ([self isLoggedIn] ) {
         [self unHideTheTabBar];
-        [ParseAPIClient saveUserIDtoParse];
+//        [ParseAPIClient saveUserIDtoParse];
     }
     
     
