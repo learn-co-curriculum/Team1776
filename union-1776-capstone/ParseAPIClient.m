@@ -19,13 +19,19 @@
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     NSString *userID = [KeychainHelper returnValueIDForCurrentUser];
     [currentInstallation setValue: userID forKey:@"userID_1776"];
-    [currentInstallation saveInBackground];
-    
-    [[UnionAPIClient sharedProxy] getNotificationsForUserID:userID CompletionHandler:^(UnionUser *unionUser) {
-        [currentInstallation setValue:unionUser.notificationChannels[1] forKey:@"notificationChannels"];
-        [currentInstallation saveInBackground];
+    [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded) {
+        [[UnionAPIClient sharedProxy] getNotificationsForUserID:userID CompletionHandler:^(UnionUser *unionUser) {
+            [currentInstallation setValue:unionUser.notificationChannels forKey:@"notificationChannels"];
+            [currentInstallation saveInBackground];
+            
+        }];
+        }
         
     }];
+    
+    
     
 }
 @end

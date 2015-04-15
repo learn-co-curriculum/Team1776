@@ -25,7 +25,7 @@
     
     NSMutableArray *notificationChannels = [[NSMutableArray alloc] init];
     
-    NSArray *lookupValuesArray = userDictionary[@"attributes"][@"entityAttributes"][0][@"lookupValues"];
+    NSArray *lookupValuesArray = userDictionary[@"attributes"][0][@"entityAttributes"][0][@"lookupValues"];
     
     for (NSDictionary *notificationChannelDictionary in lookupValuesArray) {
         NSString *notificationChannel = notificationChannelDictionary[@"name"];

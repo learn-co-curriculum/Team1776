@@ -30,12 +30,6 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
-    // Extract Notification Data
-//    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
-    
-    if (launchOptions) {
-        // direct to feed and reload webview
-    }
 
     // TRACKING PUSHES AND APP OPENS
             // When launched
@@ -70,21 +64,6 @@
 //        "feedItemId": @"something"
 //    }
 }
-
-//- (void)handleBackgroundNotification:(NSDictionary *)notification
-//{
-//    NSDictionary *aps = (NSDictionary *)[notification objectForKey:@"aps"];
-//    NSMutableString *alert = [NSMutableString stringWithString:@""];
-//    if ([aps objectForKey:@"alert"])
-//    {
-//        [alert appendString:(NSString *)[aps objectForKey:@"alert"]];
-//    }
-//    if ([notification objectForKey:@"notificationChannel"])
-//    {
-//        // do something with job id
-//        int jobID = [[notification objectForKey:@"job_id"] intValue];
-//    }
-//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
