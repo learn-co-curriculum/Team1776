@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "APIClient.h"
 #import "ParseAPIClient.h"
+#import <MBProgressHUD.h>
 
 @interface LoginViewController ()
 
@@ -19,7 +20,6 @@
 @property (strong, nonatomic) NSString *cookieValueSecure;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *UIBack;
-
 
 - (void) dataFromAppDelegate:(NSDictionary *)user1776Info;
 - (void) requestTheDefaulLoginScreen;
@@ -70,11 +70,12 @@
 
 - (void)requestTheDefaulLoginScreen {
     
-    if (self.user1776) {
+    if (self.user1776)
+    {
         [APIClient loadTheFeedWithNotification:self.user1776 withWebView:self.webView];
     }
-    else {
-        
+    else
+    {
         [APIClient loadTheInitialFeedOrLoginScreenWithWebView:self.webView];
     }
 }
@@ -87,6 +88,8 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    [MBProgressHUD hideHUDForView:webView animated:YES];
     
     //To disable horizontal scrolling
     [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];

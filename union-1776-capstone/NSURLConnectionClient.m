@@ -8,6 +8,7 @@
 
 #import "NSURLConnectionClient.h"
 #import <MBProgressHUD.h>
+#import <MBProgressHUD.h>
 
 @interface NSURLConnectionClient ()
 
@@ -34,11 +35,17 @@
 
 -(void)testConnection
 {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.webView animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.labelText = @"Loading";
+    
     [[NSURLConnection alloc] initWithRequest:self.urlRequest delegate:self];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+    [MBProgressHUD hideHUDForView:self.webView animated:YES];
+
     UIAlertView *connectionError = [[UIAlertView alloc] initWithTitle:@"Connection error" message:@"Error connecting to page.  Please check your 3G and/or Wifi settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
     [connectionError show];
@@ -56,13 +63,7 @@
         [serverError show];
     }
 
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.webView animated:YES];
-    hud.mode = MBProgressHUDModeAnnularDeterminate;
-    hud.labelText = @"Loading";
-    
     [self.webView loadRequest:self.urlRequest];
-    
-    [hud hide:YES];
 }
 
 @end

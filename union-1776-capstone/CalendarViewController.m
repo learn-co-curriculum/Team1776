@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "APIClient.h"
 #import "KeychainHelper.h"
+#import <MBProgressHUD.h>
 
 @interface CalendarViewController ()
 
@@ -49,6 +50,8 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    [MBProgressHUD hideHUDForView:webView animated:YES];
+    
     if (webView.canGoBack == YES)
     {
         self.UIBack.enabled = YES;

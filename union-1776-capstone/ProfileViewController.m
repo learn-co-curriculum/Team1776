@@ -11,6 +11,7 @@
 #import <SSKeychainQuery.h>
 #import "KeychainHelper.h"
 #import "APIClient.h"
+#import <MBProgressHUD.h>
 
 @interface ProfileViewController ()
 @property (strong, nonatomic) UIWebView *webView;
@@ -33,13 +34,13 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     
-    [APIClient loadTheProfilePageWithUserIDforWebView:self.webView];
+//    [APIClient loadTheProfilePageWithUserIDforWebView:self.webView];
 
 }
 
-- (void)didReceiveMemoryWarning
+-(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [super didReceiveMemoryWarning];
+    [MBProgressHUD hideHUDForView:webView animated:YES];
 }
 
 @end

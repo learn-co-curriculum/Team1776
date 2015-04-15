@@ -9,6 +9,7 @@
 #import "ExploreViewController.h"
 #import "Constants.h"
 #import "APIClient.h"
+#import <MBProgressHUD.h>
 
 @interface ExploreViewController ()
 
@@ -46,6 +47,7 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    [MBProgressHUD hideHUDForView:webView animated:YES];
     
     //To disable horizontal scrolling
     [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];
