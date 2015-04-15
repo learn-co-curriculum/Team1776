@@ -46,9 +46,7 @@
 {
     [MBProgressHUD hideHUDForView:self.webView animated:YES];
 
-    UIAlertView *connectionError = [[UIAlertView alloc] initWithTitle:@"Connection error" message:@"Error connecting to page.  Please check your 3G and/or Wifi settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    
-    [connectionError show];
+    [self showAlert:@"Connection error" withMessage:@"Error connecting to page.  Please check your 3G and/or Wifi settings."];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -58,12 +56,30 @@
     //Check for server error
     if ([httpResponse statusCode] >= 400)
     {
-        UIAlertView *serverError = [[UIAlertView alloc] initWithTitle:@"Server error" message:@"Error connecting to page.  If error persists, please contact support." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-        [serverError show];
+        [self showAlert:@"Server error" withMessage:@"Error connecting to page.  If error persists, please contact support."];
     }
 
     [self.webView loadRequest:self.urlRequest];
 }
 
+- (void)showAlert:(NSString *)title withMessage:(NSString *)message
+{
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                               }];
+    
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:title
+                                          message:message
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addAction:okAction];
+    
+    UIViewController *viewC = (UIViewController *)self.webView.delegate;
+    
+    [viewC presentViewController:alertController animated:YES completion:nil];
+}
 @end
