@@ -188,6 +188,157 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		BC7422A51AE8508C007F2E68 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC7422AE1AE851F1007F2E68 /* Login / Main Feed */,
+				BC7422AF1AE85200007F2E68 /* Calendar */,
+				BC7422B01AE85209007F2E68 /* Explore */,
+				BC7422B11AE85210007F2E68 /* More */,
+				BC7422B21AE85217007F2E68 /* Profile */,
+				BC7422B31AE85223007F2E68 /* Tab Bar */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BC7422A61AE850A8007F2E68 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7D27D5291ACB094A003ABDAE /* Constants.h */,
+				7D27D52A1ACB094A003ABDAE /* Constants.m */,
+				7D26EBD61ACC7B8D00ADF09B /* KeychainHelper.h */,
+				7D26EBD71ACC7B8D00ADF09B /* KeychainHelper.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		BC7422A71AE850C9007F2E68 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC7422AD1AE851DE007F2E68 /* App Delegate */,
+				BC7422A81AE850D5007F2E68 /* API Clients */,
+				BC7422AB1AE850FD007F2E68 /* Union User */,
+				BC7422AA1AE850F4007F2E68 /* URL Connection */,
+				BC7422A91AE850E2007F2E68 /* Data Store */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		BC7422A81AE850D5007F2E68 /* API Clients */ = {
+			isa = PBXGroup;
+			children = (
+				7DE8BD021ACD927300D86708 /* APIClient.h */,
+				7DE8BD031ACD927300D86708 /* APIClient.m */,
+				BCB83F2F1AD3188600C4A117 /* UnionAPIClient.h */,
+				BCB83F301AD3188600C4A117 /* UnionAPIClient.m */,
+				9FABD12A1AD4267D00C824AD /* ParseAPIClient.h */,
+				9FABD12B1AD4267D00C824AD /* ParseAPIClient.m */,
+			);
+			name = "API Clients";
+			sourceTree = "<group>";
+		};
+		BC7422A91AE850E2007F2E68 /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				BC02F1DC1AE03FCE007D575D /* UnionDataStore.h */,
+				BC02F1DD1AE03FCE007D575D /* UnionDataStore.m */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		BC7422AA1AE850F4007F2E68 /* URL Connection */ = {
+			isa = PBXGroup;
+			children = (
+				A0554DEC1ADD8AE20091E4BB /* NSURLConnectionClient.h */,
+				A0554DED1ADD8AE20091E4BB /* NSURLConnectionClient.m */,
+			);
+			name = "URL Connection";
+			sourceTree = "<group>";
+		};
+		BC7422AB1AE850FD007F2E68 /* Union User */ = {
+			isa = PBXGroup;
+			children = (
+				BCB83F321AD31B8E00C4A117 /* UnionUser.h */,
+				BCB83F331AD31B8E00C4A117 /* UnionUser.m */,
+			);
+			name = "Union User";
+			sourceTree = "<group>";
+		};
+		BC7422AC1AE85142007F2E68 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCF997C11AC9DCD400D38FF9 /* Main.storyboard */,
+				BC7422A41AE85023007F2E68 /* Images */,
+				BCF997C61AC9DCD400D38FF9 /* LaunchScreen.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BC7422AD1AE851DE007F2E68 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				BCF997BB1AC9DCD300D38FF9 /* AppDelegate.h */,
+				BCF997BC1AC9DCD300D38FF9 /* AppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		BC7422AE1AE851F1007F2E68 /* Login / Main Feed */ = {
+			isa = PBXGroup;
+			children = (
+				7D0432E21ACAE5CD00EDCE3E /* LoginViewController.h */,
+				7D0432E31ACAE5CD00EDCE3E /* LoginViewController.m */,
+			);
+			name = "Login / Main Feed";
+			sourceTree = "<group>";
+		};
+		BC7422AF1AE85200007F2E68 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				A09BDBD61ACC2E1300254711 /* CalendarViewController.h */,
+				A09BDBD71ACC2E1300254711 /* CalendarViewController.m */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		BC7422B01AE85209007F2E68 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				A09BDBD91ACC2E4500254711 /* ExploreViewController.h */,
+				A09BDBDA1ACC2E4500254711 /* ExploreViewController.m */,
+			);
+			name = Explore;
+			sourceTree = "<group>";
+		};
+		BC7422B11AE85210007F2E68 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				A09BDBEB1ACC7CE200254711 /* MoreTableViewController.h */,
+				A09BDBEC1ACC7CE200254711 /* MoreTableViewController.m */,
+			);
+			name = More;
+			sourceTree = "<group>";
+		};
+		BC7422B21AE85217007F2E68 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A09BDBE51ACC71BD00254711 /* ProfileViewController.h */,
+				A09BDBE61ACC71BE00254711 /* ProfileViewController.m */,
+				A09BDBE81ACC742100254711 /* UpdateProfileViewController.h */,
+				A09BDBE91ACC742100254711 /* UpdateProfileViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		BC7422B31AE85223007F2E68 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				A01D37B61AD44AF9008E9742 /* UnionTabBarViewController.h */,
+				A01D37B71AD44AF9008E9742 /* UnionTabBarViewController.m */,
+			);
+			name = "Tab Bar";
+			sourceTree = "<group>";
+		};
 		BCF997AB1AC9DCD300D38FF9 = {
 			isa = PBXGroup;
 			children = (
@@ -211,42 +362,11 @@
 		BCF997B61AC9DCD300D38FF9 /* union-1776-capstone */ = {
 			isa = PBXGroup;
 			children = (
-				7DE8BD021ACD927300D86708 /* APIClient.h */,
-				7DE8BD031ACD927300D86708 /* APIClient.m */,
-				7D27D5291ACB094A003ABDAE /* Constants.h */,
-				7D27D52A1ACB094A003ABDAE /* Constants.m */,
-				BCF997BB1AC9DCD300D38FF9 /* AppDelegate.h */,
-				BCF997BC1AC9DCD300D38FF9 /* AppDelegate.m */,
-				BCB83F2F1AD3188600C4A117 /* UnionAPIClient.h */,
-				BCB83F301AD3188600C4A117 /* UnionAPIClient.m */,
-				BCB83F321AD31B8E00C4A117 /* UnionUser.h */,
-				BCB83F331AD31B8E00C4A117 /* UnionUser.m */,
-				7D26EBD61ACC7B8D00ADF09B /* KeychainHelper.h */,
-				7D26EBD71ACC7B8D00ADF09B /* KeychainHelper.m */,
-				7D0432E21ACAE5CD00EDCE3E /* LoginViewController.h */,
-				7D0432E31ACAE5CD00EDCE3E /* LoginViewController.m */,
-				A0554DEC1ADD8AE20091E4BB /* NSURLConnectionClient.h */,
-				A0554DED1ADD8AE20091E4BB /* NSURLConnectionClient.m */,
-				9FABD12A1AD4267D00C824AD /* ParseAPIClient.h */,
-				9FABD12B1AD4267D00C824AD /* ParseAPIClient.m */,
-				A09BDBD61ACC2E1300254711 /* CalendarViewController.h */,
-				A09BDBD71ACC2E1300254711 /* CalendarViewController.m */,
-				A09BDBD91ACC2E4500254711 /* ExploreViewController.h */,
-				A09BDBDA1ACC2E4500254711 /* ExploreViewController.m */,
-				A09BDBEB1ACC7CE200254711 /* MoreTableViewController.h */,
-				A09BDBEC1ACC7CE200254711 /* MoreTableViewController.m */,
-				A09BDBE51ACC71BD00254711 /* ProfileViewController.h */,
-				A09BDBE61ACC71BE00254711 /* ProfileViewController.m */,
-				A01D37B61AD44AF9008E9742 /* UnionTabBarViewController.h */,
-				A01D37B71AD44AF9008E9742 /* UnionTabBarViewController.m */,
-				A09BDBE81ACC742100254711 /* UpdateProfileViewController.h */,
-				A09BDBE91ACC742100254711 /* UpdateProfileViewController.m */,
-				BC02F1DC1AE03FCE007D575D /* UnionDataStore.h */,
-				BC02F1DD1AE03FCE007D575D /* UnionDataStore.m */,
-				BCF997C11AC9DCD400D38FF9 /* Main.storyboard */,
-				BC7422A41AE85023007F2E68 /* Images */,
+				BC7422A71AE850C9007F2E68 /* Models */,
+				BC7422AC1AE85142007F2E68 /* Views */,
+				BC7422A51AE8508C007F2E68 /* Controllers */,
+				BC7422A61AE850A8007F2E68 /* Helpers */,
 				BCF997C41AC9DCD400D38FF9 /* Images.xcassets */,
-				BCF997C61AC9DCD400D38FF9 /* LaunchScreen.xib */,
 				BCF997F71AC9DDB400D38FF9 /* Libraries */,
 				BCF997B71AC9DCD300D38FF9 /* Supporting Files */,
 			);
