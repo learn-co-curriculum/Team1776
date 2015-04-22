@@ -20,5 +20,7 @@ NSString *const DEVICE_ID_FOR_KEYCHAIN = @"UnionID";
 NSString *const ACCOUNT_ID_FOR_DEVICEID = @"IDUser";
 NSString *const SECURE_ID_FOR_KEYCHAIN = @"Union1776Secure";
 NSString *const ACCOUNT_ID_FOR_SECUREID = @"IDSecureUser";
+NSString *const PARSE_APPLICATION_ID = @"g9XVmZMLsNgqDXQIxYMvK69Dx5b1C6XrkEKHaoD3";
+NSString *const PARSE_CLIENT_KEY = @"Lr4D8Ohu1eZscS13I61ehS0C8DKWK5R748DawABg";
 
 @end

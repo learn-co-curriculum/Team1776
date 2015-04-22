@@ -35,4 +35,5 @@
     UnionUser *user = [[UnionUser alloc] initWithUserID:userDictionary[@"user"][@"id"] NotificationChannels:notificationChannels];
     return user;
 }
+
 @end

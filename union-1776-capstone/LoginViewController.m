@@ -47,14 +47,11 @@
     [super viewDidLoad];
     NSLog(@"viewdidLoadWasCalled");
 
-//    self.appDelegate.delegate = self;
     
     self.UIBack.enabled = NO;
     [self.UIBack setTintColor:[UIColor clearColor]];
     
     [self setUpOurInitialView];
-    
-  
     
     [self requestTheDefaulLoginScreen];
     
@@ -70,21 +67,10 @@
     
 }
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    if ([UnionDataStore sharedDataStore].notificationDictionary) {
-//        [APIClient loadTheFeedWithNotification:[UnionDataStore sharedDataStore].notificationDictionary withWebView:self.webView];
-//        NSLog(@"it's loading the url from viewdidappear");
-//        
-//    }
-//}
 
 - (void) pushNotificationReceived {
-    [APIClient loadTheFeedWithNotification:[UnionDataStore sharedDataStore].notificationDictionary withWebView:self.webView];
-//    NSString *message = [NSString stringWithFormat:@"The dictionary is... %@", [UnionDataStore sharedDataStore].notificationDictionary];
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YO!" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//        [alert show];
     
- 
+    [APIClient loadTheFeedWithNotification:[UnionDataStore sharedDataStore].notificationDictionary withWebView:self.webView];
 }
 
 - (void)requestTheDefaulLoginScreen {
@@ -94,7 +80,7 @@
 
 #pragma mark - UIWebViewDelegate Methods
 
--(void)webViewDidStartLoad:(UIWebView *)webView {
+- (void)webViewDidStartLoad:(UIWebView *)webView {
     
     self.UIBack.enabled = self.webView.canGoBack;
     if ([self isLoggedIn]) {
@@ -119,9 +105,7 @@
 
     if ([self isLoggedIn] ) {
         [self unHideTheTabBar];
-//        [ParseAPIClient saveUserIDtoParse];
     }
-    
     
     [self toggleBackButtonToState:(webView.canGoBack && ![self onMainPage:webView.request.URL])];
     
@@ -142,8 +126,7 @@
 
 #pragma mark - Actions
 
-- (IBAction)backTapped:(id)sender
-{
+- (IBAction)backTapped:(id)sender {
     if ([self.webView canGoBack])
     {
         [self.webView goBack];
@@ -152,30 +135,29 @@
 
 #pragma mark - Helper Methods
 
--(void)reloadWebView
-{
-    if ( [self onMainPage:self.webView.request.URL] )
-    {
+-(void)reloadWebView {
+    
+    if ( [self onMainPage:self.webView.request.URL] ) {
         NSString *script = @"$('html, body').animate({scrollTop:0}, 'fast')";
         [self.webView stringByEvaluatingJavaScriptFromString:script];
-    }
-    else
-    {
+        
+    } else {
         [self requestTheDefaulLoginScreen];
     }
     
 }
 
-- (BOOL) onMainPage:(NSURL *)currentURL
-{
+- (BOOL)onMainPage:(NSURL *)currentURL {
+    
     NSString *urlString = currentURL.absoluteString;
+    
     return [urlString isEqualToString:DEFAULT_LOGIN_SCREEN_OR_FEED] ||
            [urlString isEqualToString:[NSString stringWithFormat:@"%@%@",DEFAULT_LOGIN_SCREEN_OR_FEED,@"#"]] ||
            [urlString isEqualToString:DEFAULT_LOGIN_SCREEN];
-    
 }
 
 - (void)fetchCookieFromWebView {
+    
     //To find the cookie needed to store the 1776dc_uid and 1776dc_uid_secure
     NSHTTPCookie *cookie;
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
@@ -183,11 +165,9 @@
     for (cookie in [cookieJar cookies]) {
         
         if ([cookie.name isEqualToString:@"1776dc_uid"]) {
-            
             self.cookieValue = cookie.value;
         }
         if ([cookie.name isEqualToString:@"1776dc_uid_secure"]) {
-            
             //This is not being used
             self.cookieValueSecure = cookie.value;
         }
@@ -203,43 +183,30 @@
 }
 
 
-- (void) toggleBackButtonToState:(BOOL)state
-{
+- (void) toggleBackButtonToState:(BOOL)state {
     
-    if (state)
-    {
+    if (state) {
         self.UIBack.enabled = YES;
         [self.UIBack setTintColor:[UIColor blueColor]];
-        
-    } else
-    {
+    } else {
         self.UIBack.enabled = NO;
         [self.UIBack setTintColor:[UIColor clearColor]];
     }
-    
 }
 
 - (void)hideTheTabBar {
     
     self.hidesBottomBarWhenPushed = NO;
     
-//    [self setHideTabBar:YES animated:YES];
-    
     [self.tabBarController.tabBar setTranslucent:YES];
     [self.tabBarController.tabBar setHidden:YES];
-//    [self hideTabBar:self.tabBarController];
     
 }
 
 - (void)unHideTheTabBar {
     
-//    [self setHideTabBar:NO animated:YES];
-    
-    
     [self.tabBarController.tabBar setTranslucent:NO];
     [self.tabBarController.tabBar setHidden:NO];
-    
-//    [self showTabBar:self.tabBarController];
     
 }
 
@@ -248,55 +215,54 @@
     return self.cookieValue != nil;
 }
 
-- (void) hideTabBar:(UITabBarController *) tabbarcontroller
-{
+- (void) hideTabBar:(UITabBarController *) tabbarcontroller {
+    
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.5];
+    
     float fHeight = screenRect.size.height;
-    if(  UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) )
-    {
+    
+    if(  UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) ) {
         fHeight = screenRect.size.width;
     }
     
-    for(UIView *view in tabbarcontroller.view.subviews)
-    {
-        if([view isKindOfClass:[UITabBar class]])
-        {
+    for (UIView *view in tabbarcontroller.view.subviews) {
+        
+        if([view isKindOfClass:[UITabBar class]]) {
             [view setFrame:CGRectMake(view.frame.origin.x, fHeight, view.frame.size.width, view.frame.size.height)];
-        }
-        else
-        {
+            
+        } else {
             [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, fHeight)];
             view.backgroundColor = [UIColor blackColor];
         }
     }
+    
     [UIView commitAnimations];
 }
 
 
 
-- (void) showTabBar:(UITabBarController *) tabbarcontroller
-{
+- (void) showTabBar:(UITabBarController *) tabbarcontroller {
+    
     CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
     float fHeight = screenRect.size.height - tabbarcontroller.tabBar.frame.size.height;
     
-    if(  UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) )
-    {
+    if(  UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) ) {
         fHeight = screenRect.size.width - tabbarcontroller.tabBar.frame.size.height;
     }
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.5];
-    for(UIView *view in tabbarcontroller.view.subviews)
-    {
-        if([view isKindOfClass:[UITabBar class]])
-        {
+    
+    for (UIView *view in tabbarcontroller.view.subviews) {
+        
+        if([view isKindOfClass:[UITabBar class]]) {
             [view setFrame:CGRectMake(view.frame.origin.x, fHeight, view.frame.size.width, view.frame.size.height)];
-        }
-        else
-        {
+            
+        } else {
             [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, fHeight)];
         }
     }
@@ -304,7 +270,9 @@
 }
 
 - (void)setHideTabBar:(BOOL)hide animated:(BOOL)animated {
+    
     UIViewController *selectedViewController = self.tabBarController;
+    
     if ([selectedViewController isKindOfClass:[UINavigationController class]])
         selectedViewController = ((UINavigationController *)selectedViewController).visibleViewController;
     __weak __typeof(self) weakSelf = self;

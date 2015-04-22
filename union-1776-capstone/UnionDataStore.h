@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface UnionDataStore : NSObject
+
 + (instancetype)sharedDataStore;
 @property (strong, nonatomic) NSDictionary *notificationDictionary;
+
 @end

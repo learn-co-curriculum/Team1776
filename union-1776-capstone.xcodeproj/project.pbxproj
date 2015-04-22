@@ -176,6 +176,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BC7422A41AE85023007F2E68 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BCA479DE1ACDD8D60030AD8C /* calendar-tab.png */,
+				BCA479DA1ACDD8930030AD8C /* home-tab1.png */,
+				BCA479DC1ACDD8980030AD8C /* home-tab2.png */,
+				BCA479E21ACDDB700030AD8C /* eye-tab.png */,
+				BCA479D41ACDCE860030AD8C /* union-launchscreen.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		BCF997AB1AC9DCD300D38FF9 = {
 			isa = PBXGroup;
 			children = (
@@ -199,11 +211,6 @@
 		BCF997B61AC9DCD300D38FF9 /* union-1776-capstone */ = {
 			isa = PBXGroup;
 			children = (
-				BCA479DE1ACDD8D60030AD8C /* calendar-tab.png */,
-				BCA479DA1ACDD8930030AD8C /* home-tab1.png */,
-				BCA479DC1ACDD8980030AD8C /* home-tab2.png */,
-				BCA479E21ACDDB700030AD8C /* eye-tab.png */,
-				BCA479D41ACDCE860030AD8C /* union-launchscreen.png */,
 				7DE8BD021ACD927300D86708 /* APIClient.h */,
 				7DE8BD031ACD927300D86708 /* APIClient.m */,
 				7D27D5291ACB094A003ABDAE /* Constants.h */,
@@ -237,6 +244,7 @@
 				BC02F1DC1AE03FCE007D575D /* UnionDataStore.h */,
 				BC02F1DD1AE03FCE007D575D /* UnionDataStore.m */,
 				BCF997C11AC9DCD400D38FF9 /* Main.storyboard */,
+				BC7422A41AE85023007F2E68 /* Images */,
 				BCF997C41AC9DCD400D38FF9 /* Images.xcassets */,
 				BCF997C61AC9DCD400D38FF9 /* LaunchScreen.xib */,
 				BCF997F71AC9DDB400D38FF9 /* Libraries */,

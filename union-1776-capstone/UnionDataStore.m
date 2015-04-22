@@ -9,6 +9,7 @@
 #import "UnionDataStore.h"
 
 @implementation UnionDataStore
+
 + (instancetype)sharedDataStore {
     static UnionDataStore *_sharedDataStore = nil;
     static dispatch_once_t onceToken;
@@ -18,4 +19,5 @@
     
     return _sharedDataStore;
 }
+
 @end

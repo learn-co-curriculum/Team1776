@@ -13,8 +13,7 @@
 
 @implementation UnionAPIClient
 
-+ (instancetype)sharedProxy
-{
++ (instancetype)sharedProxy {
     static UnionAPIClient *sharedProxy;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -26,16 +25,9 @@
 
 - (void)getNotificationsForUserID: (NSString *)userID
                 CompletionHandler:(void (^)(UnionUser *unionUser))completionBlock {
+
+    NSString *defaultLoginURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/getAttributeCollection?userId=%@&categorizationName=NotificationChannels", userID];
     
-    //    union/user/getAttributeCollection?userId=3f7375a1-d70b-11e4-bf54-06867e4d05a8&categorizationName=NotificationChannels
-    
-    //    "http://dev.1776union.io/union/user/getAttributeCollection?userId=3f7375a1-d70b-11e4-bf54-06867e4d05a8&categorizationName=NotificationChannels
-    //    3f7375a1-d70b-11e4-bf54-06867e4d05a8
-    
-    //
-        NSString *defaultLoginURLString = [NSString stringWithFormat:@"http://dev.1776union.io/union/user/getAttributeCollection?userId=%@&categorizationName=NotificationChannels", userID];
-    
-//    NSString *defaultLoginURLString = [NSString stringWithFormat:@"%@", DEFAULT_LOGIN_SCREEN_OR_FEED];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     

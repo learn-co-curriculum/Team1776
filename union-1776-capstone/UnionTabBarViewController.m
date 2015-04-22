@@ -24,8 +24,7 @@ typedef enum {
 
 @implementation UnionTabBarViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -34,8 +33,7 @@ typedef enum {
 
 #pragma mark - UITabBarControllerDelegate Methods
 
--(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
-{
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     if ( ( item.tag == self.currentTab ) && ( self.currentTab == FEED ) )
     {
         NSLog(@"Selected Feed while on Feed");

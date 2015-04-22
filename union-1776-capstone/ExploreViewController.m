@@ -21,8 +21,7 @@
 
 @implementation ExploreViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.UIBack.enabled = NO;
@@ -34,19 +33,11 @@
     [APIClient loadTheExplorerFeedWitHWebView:self.webView];
 }
 
--(void)webViewDidStartLoad:(UIWebView *)webView
-{
+- (void)webViewDidStartLoad:(UIWebView *)webView {
     self.UIBack.enabled = self.webView.canGoBack;
 }
 
-
-//-(void)viewDidAppear:(BOOL)animated {
-//    
-//    [APIClient loadTheExplorerFeedWitHWebView:self.webView];
-//}
-
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
     [MBProgressHUD hideHUDForView:webView animated:YES];
     
     //To disable horizontal scrolling
@@ -64,13 +55,11 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)backTapped:(id)sender
-{
+- (IBAction)backTapped:(id)sender {
     if ([self.webView canGoBack])
     {
         [self.webView goBack];

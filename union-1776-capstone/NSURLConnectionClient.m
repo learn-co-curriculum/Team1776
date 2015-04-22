@@ -20,8 +20,7 @@
 
 @implementation NSURLConnectionClient
 
--(instancetype)initWithUrlRequest:(NSURLRequest *)urlRequest forWebView:(UIWebView *)webView
-{
+- (instancetype)initWithUrlRequest:(NSURLRequest *)urlRequest forWebView:(UIWebView *)webView {
     self = [super init];
     
     if (self)
@@ -33,8 +32,8 @@
     return self;
 }
 
--(void)testConnection
-{
+- (void)testConnection {
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.webView animated:YES];
     hud.mode = MBProgressHUDModeAnnularDeterminate;
     hud.labelText = @"Loading";
@@ -42,15 +41,15 @@
     [[NSURLConnection alloc] initWithRequest:self.urlRequest delegate:self];
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    
     [MBProgressHUD hideHUDForView:self.webView animated:YES];
 
     [self showAlert:@"Connection error" withMessage:@"Error connecting to page.  Please check your 3G and/or Wifi settings."];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
     
     //Check for server error
@@ -62,8 +61,8 @@
     [self.webView loadRequest:self.urlRequest];
 }
 
-- (void)showAlert:(NSString *)title withMessage:(NSString *)message
-{
+- (void)showAlert:(NSString *)title withMessage:(NSString *)message {
+    
     UIAlertAction *okAction = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"OK", @"OK action")
                                style:UIAlertActionStyleDefault

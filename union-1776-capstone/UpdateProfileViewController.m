@@ -19,8 +19,7 @@
 
 @implementation UpdateProfileViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
@@ -29,14 +28,7 @@
     [APIClient loadTheUpdateProfilePageWithUserIDforWebView:self.webView];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    
-//    [APIClient loadTheUpdateProfilePageWithUserIDforWebView:self.webView];
-
-}
-
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
     [MBProgressHUD hideHUDForView:webView animated:YES];
 }
 

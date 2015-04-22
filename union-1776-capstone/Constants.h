@@ -24,4 +24,7 @@ extern NSString *const ACCOUNT_ID_FOR_DEVICEID;
 extern NSString *const SECURE_ID_FOR_KEYCHAIN;
 extern NSString *const ACCOUNT_ID_FOR_SECUREID;
 
+extern NSString *const PARSE_APPLICATION_ID;
+extern NSString *const PARSE_CLIENT_KEY;
+
 @end

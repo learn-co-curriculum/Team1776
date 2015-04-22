@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
 #import "UnionDataStore.h"
+#import "Constants.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,13 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    /*
+     When handing off to Yuri, use line below to set the Application ID
+     
+     [Parse setApplicationId:PARSE_APPLICATION_ID clientKey:PARSE_CLIENT_KEY];
+     
+     */
     
     [Parse setApplicationId:@"4H8aThaVBURMW1iTAqR7AMdqbJ5K2sX1tawYyHXl"clientKey:@"GTOKhDLFKrgZYXf5vZvvl3kRmpvgNZirPT2caAOn"];
     
@@ -47,11 +55,7 @@
             [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
         }
     }
-    if (launchOptions == nil) {
-        NSLog(@"launchoptions is nil");
-    } else if (launchOptions) {
-        NSLog(@"launch options is alive and well");
-    }
+
     return YES;
 }
 
