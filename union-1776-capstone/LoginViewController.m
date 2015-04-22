@@ -23,7 +23,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *UIBack;
 
-- (void) dataFromAppDelegate:(NSDictionary *)user1776Info;
+
 - (void) requestTheDefaulLoginScreen;
 
 - (void) setUpOurInitialView;
@@ -85,18 +85,6 @@
 //        [alert show];
     
  
-}
-
-#pragma mark - AppDelegateProtocol Methods
-
-- (void)dataFromAppDelegate:(NSDictionary *)user1776Info {
-    self.user1776 = user1776Info;
-    
-//    if (self.user1776) {
-        NSLog(@"We are inside datafromappdelegate if statement");
-        [APIClient loadTheFeedWithNotification:self.user1776 withWebView:self.webView];
-        
-//    }
 }
 
 - (void)requestTheDefaulLoginScreen {

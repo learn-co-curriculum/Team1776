@@ -68,17 +68,6 @@
     [PFPush handlePush:userInfo];
     [UnionDataStore sharedDataStore].notificationDictionary = userInfo;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
-    [self.delegate dataFromAppDelegate:userInfo];
-   
-//    {
-//        "aps": {
-//            "badge": 10,
-//            "alert": "New Health Event!",
-//            "sound": "cat.caf"
-//        },
-//        "type": @"Health"
-//        "feedItemId": @"something"
-//    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
