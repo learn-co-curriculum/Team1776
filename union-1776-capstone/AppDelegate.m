@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "LoginViewController.h"
+#import "UnionDataStore.h"
 
 @interface AppDelegate ()
 
@@ -25,11 +27,15 @@
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                     UIUserNotificationTypeBadge |
                                                     UIUserNotificationTypeSound);
-    
+
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
+    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    [UnionDataStore sharedDataStore].notificationDictionary = notificationPayload;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:notificationPayload];
+ 
 
     // TRACKING PUSHES AND APP OPENS
             // When launched
@@ -40,6 +46,11 @@
         if (preBackgroundPush || oldPushHandlerOnly || noPushPayLoad) {
             [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
         }
+    }
+    if (launchOptions == nil) {
+        NSLog(@"launchoptions is nil");
+    } else if (launchOptions) {
+        NSLog(@"launch options is alive and well");
     }
     return YES;
 }
@@ -52,8 +63,13 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    NSLog(@"received notification");
     [PFPush handlePush:userInfo];
+    [UnionDataStore sharedDataStore].notificationDictionary = userInfo;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     [self.delegate dataFromAppDelegate:userInfo];
+   
 //    {
 //        "aps": {
 //            "badge": 10,

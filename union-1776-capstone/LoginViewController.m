@@ -11,6 +11,7 @@
 #import "APIClient.h"
 #import "ParseAPIClient.h"
 #import <MBProgressHUD.h>
+#import "UnionDataStore.h"
 
 @interface LoginViewController ()
 
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) NSDictionary *user1776;
 @property (strong, nonatomic) NSString *cookieValue;
 @property (strong, nonatomic) NSString *cookieValueSecure;
+
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *UIBack;
 
@@ -43,49 +45,63 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    NSLog(@"viewdidLoadWasCalled");
+
+//    self.appDelegate.delegate = self;
     
     self.UIBack.enabled = NO;
     [self.UIBack setTintColor:[UIColor clearColor]];
     
     [self setUpOurInitialView];
     
-    
+  
     
     [self requestTheDefaulLoginScreen];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNotificationReceived) name:@"pushNotification" object:nil];
     
     if ([self isLoggedIn]) {
         [self unHideTheTabBar];
     } else
     {
         [self hideTheTabBar];
-  
-        
     }
     
+}
+
+//- (void)viewDidAppear:(BOOL)animated {
+//    if ([UnionDataStore sharedDataStore].notificationDictionary) {
+//        [APIClient loadTheFeedWithNotification:[UnionDataStore sharedDataStore].notificationDictionary withWebView:self.webView];
+//        NSLog(@"it's loading the url from viewdidappear");
+//        
+//    }
+//}
+
+- (void) pushNotificationReceived {
+    [APIClient loadTheFeedWithNotification:[UnionDataStore sharedDataStore].notificationDictionary withWebView:self.webView];
+//    NSString *message = [NSString stringWithFormat:@"The dictionary is... %@", [UnionDataStore sharedDataStore].notificationDictionary];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YO!" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
     
+ 
 }
 
 #pragma mark - AppDelegateProtocol Methods
 
 - (void)dataFromAppDelegate:(NSDictionary *)user1776Info {
-    
     self.user1776 = user1776Info;
     
-//    [self requestTheDefaulLoginScreen];
-    
+//    if (self.user1776) {
+        NSLog(@"We are inside datafromappdelegate if statement");
+        [APIClient loadTheFeedWithNotification:self.user1776 withWebView:self.webView];
+        
+//    }
 }
 
 - (void)requestTheDefaulLoginScreen {
     
-    if (self.user1776)
-    {
-        [APIClient loadTheFeedWithNotification:self.user1776 withWebView:self.webView];
-        
-    }
-    else
-    {
-        [APIClient loadTheInitialFeedOrLoginScreenWithWebView:self.webView];
-    }
+    [APIClient loadTheInitialFeedOrLoginScreenWithWebView:self.webView];
 }
 
 #pragma mark - UIWebViewDelegate Methods

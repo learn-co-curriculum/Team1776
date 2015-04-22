@@ -21,6 +21,7 @@
 		A09BDBE71ACC71BE00254711 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBE61ACC71BE00254711 /* ProfileViewController.m */; };
 		A09BDBEA1ACC742100254711 /* UpdateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBE91ACC742100254711 /* UpdateProfileViewController.m */; };
 		A09BDBED1ACC7CE200254711 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDBEC1ACC7CE200254711 /* MoreTableViewController.m */; };
+		BC02F1DE1AE03FCE007D575D /* UnionDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = BC02F1DD1AE03FCE007D575D /* UnionDataStore.m */; };
 		BC87564D1AC9FF0400E42DD7 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC87564C1AC9FF0400E42DD7 /* image.xcassets */; };
 		BCA479D51ACDCE860030AD8C /* union-launchscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA479D41ACDCE860030AD8C /* union-launchscreen.png */; };
 		BCA479DB1ACDD8930030AD8C /* home-tab1.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA479DA1ACDD8930030AD8C /* home-tab1.png */; };
@@ -35,8 +36,6 @@
 		BCF997C51AC9DCD400D38FF9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCF997C41AC9DCD400D38FF9 /* Images.xcassets */; };
 		BCF997C81AC9DCD400D38FF9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF997C61AC9DCD400D38FF9 /* LaunchScreen.xib */; };
 		BCF997D41AC9DCD400D38FF9 /* union_1776_capstoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF997D31AC9DCD400D38FF9 /* union_1776_capstoneTests.m */; };
-		BCF997DE1AC9DD1400D38FF9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997DD1AC9DD1400D38FF9 /* Parse.framework */; };
-		BCF997E01AC9DD2100D38FF9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997DF1AC9DD2100D38FF9 /* Bolts.framework */; };
 		BCF997E21AC9DD5400D38FF9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997E11AC9DD5400D38FF9 /* AudioToolbox.framework */; };
 		BCF997E41AC9DD5900D38FF9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997E31AC9DD5900D38FF9 /* CFNetwork.framework */; };
 		BCF997E61AC9DD5F00D38FF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF997E51AC9DD5F00D38FF9 /* CoreGraphics.framework */; };
@@ -89,6 +88,8 @@
 		A09BDBE91ACC742100254711 /* UpdateProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateProfileViewController.m; sourceTree = "<group>"; };
 		A09BDBEB1ACC7CE200254711 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		A09BDBEC1ACC7CE200254711 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
+		BC02F1DC1AE03FCE007D575D /* UnionDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnionDataStore.h; sourceTree = "<group>"; };
+		BC02F1DD1AE03FCE007D575D /* UnionDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnionDataStore.m; sourceTree = "<group>"; };
 		BC87564C1AC9FF0400E42DD7 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
 		BCA479D41ACDCE860030AD8C /* union-launchscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "union-launchscreen.png"; sourceTree = "<group>"; };
 		BCA479DA1ACDD8930030AD8C /* home-tab1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-tab1.png"; sourceTree = "<group>"; };
@@ -142,8 +143,6 @@
 				BCF997E61AC9DD5F00D38FF9 /* CoreGraphics.framework in Frameworks */,
 				BCF997E41AC9DD5900D38FF9 /* CFNetwork.framework in Frameworks */,
 				BCF997E21AC9DD5400D38FF9 /* AudioToolbox.framework in Frameworks */,
-				BCF997DE1AC9DD1400D38FF9 /* Parse.framework in Frameworks */,
-				BCF997E01AC9DD2100D38FF9 /* Bolts.framework in Frameworks */,
 				E046DD771DED233E7AA2BCE8 /* libPods-union-1776-capstone.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +234,8 @@
 				A01D37B71AD44AF9008E9742 /* UnionTabBarViewController.m */,
 				A09BDBE81ACC742100254711 /* UpdateProfileViewController.h */,
 				A09BDBE91ACC742100254711 /* UpdateProfileViewController.m */,
+				BC02F1DC1AE03FCE007D575D /* UnionDataStore.h */,
+				BC02F1DD1AE03FCE007D575D /* UnionDataStore.m */,
 				BCF997C11AC9DCD400D38FF9 /* Main.storyboard */,
 				BCF997C41AC9DCD400D38FF9 /* Images.xcassets */,
 				BCF997C61AC9DCD400D38FF9 /* LaunchScreen.xib */,
@@ -447,6 +448,7 @@
 				9FABD12C1AD4267D00C824AD /* ParseAPIClient.m in Sources */,
 				A01D37B81AD44AF9008E9742 /* UnionTabBarViewController.m in Sources */,
 				A09BDBDB1ACC2E4500254711 /* ExploreViewController.m in Sources */,
+				BC02F1DE1AE03FCE007D575D /* UnionDataStore.m in Sources */,
 				BCF997BD1AC9DCD300D38FF9 /* AppDelegate.m in Sources */,
 				7DE8BD041ACD927300D86708 /* APIClient.m in Sources */,
 				A09BDBD81ACC2E1300254711 /* CalendarViewController.m in Sources */,

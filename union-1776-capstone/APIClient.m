@@ -15,7 +15,8 @@
 
 + (NSURLRequest *)getURLWithFeedItemIdfromNotification:(NSDictionary *)notification {
     
-    NSString *stringToUseIfTrue = [NSString stringWithFormat:@"http://dev.1776union.io/union/feed/get?type=%@&feedItemId=%@", notification[@"type"], notification[@"feedItemId"]];
+    NSString *stringToUseIfTrue = [NSString stringWithFormat:@"http://dev.1776union.io/union/feed/get?type=%@&feedItemId=%@", notification[@"aps"][@"type"], notification[@"aps"][@"feedItemId"]];
+//    NSString *stringToUseIfTrue = @"http://dev.1776union.io/union/feed/get?type=item&feedItemId=4b421662-e196-11e4-bf54-06867e4d05a8";
     NSURL *loginURL = [NSURL URLWithString:stringToUseIfTrue];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:loginURL];
     //    [webview loadRequest:urlRequest];
@@ -25,7 +26,7 @@
 
 + (NSURLRequest *)getURLWithTagsfromNotification:(NSDictionary *)notification {
     
-    NSString *stringToUseIfTrue = [NSString stringWithFormat:@"http://dev.1776union.io/union/feed/get?type=%@&tags=%@", notification[@"type"], notification[@"tags"]];
+    NSString *stringToUseIfTrue = [NSString stringWithFormat:@"http://dev.1776union.io/union/feed/get?type=%@&tags=%@", notification[@"aps"][@"type"], notification[@"aps"][@"tags"]];
     NSURL *loginURL = [NSURL URLWithString:stringToUseIfTrue];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:loginURL];
     //    [webview loadRequest:urlRequest];
@@ -36,7 +37,7 @@
 
 + (NSURLRequest *)getURLWithTypefromNotification:(NSDictionary *)notification {
     
-    NSString *stringToUseIfTrue = [NSString stringWithFormat:@"http://dev.1776union.io/union/feed/get?type=%@", notification[@"type"]];
+    NSString *stringToUseIfTrue = [NSString stringWithFormat:@"http://dev.1776union.io/union/feed/get?type=%@", notification[@"aps"][@"type"]];
     NSURL *loginURL = [NSURL URLWithString:stringToUseIfTrue];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:loginURL];
     //    [webview loadRequest:urlRequest];
@@ -46,10 +47,11 @@
 
 + (void)loadTheInitialFeedOrLoginScreenWithWebView:(UIWebView *)webview {
     
+//    NSString *defaultLoginURLString = @"http//:www.google.com";
     NSString *defaultLoginURLString = [NSString stringWithFormat:@"%@", DEFAULT_LOGIN_SCREEN_OR_FEED];
     NSURL *loginURL = [NSURL URLWithString:defaultLoginURLString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:loginURL];
-    //    [webview loadRequest:urlRequest];
+  //      [webview loadRequest:urlRequest];
     
     [APIClient testConnection:urlRequest forWebView:webview];
 }
@@ -57,10 +59,12 @@
 + (void)loadTheFeedWithNotification:(NSDictionary *)notification withWebView:(UIWebView *)webview; {
     
     NSURLRequest *urlRequest = [[NSURLRequest alloc] init];
-    
+
     if ([[notification allKeys] containsObject:@"feedItemId"]) {
-        
+    
         urlRequest = [APIClient getURLWithFeedItemIdfromNotification:notification];
+    NSLog(@"we are trying to load a different URL");
+    NSLog(@"%@", notification);
     }
     else if ([[notification allKeys] containsObject:@"tags"])
         
@@ -75,8 +79,9 @@
         NSLog(@"None of the conditions are met, something is wrong - from API CLIENT");
         
     }
+    [webview loadRequest:urlRequest];
     
-        [APIClient testConnection:urlRequest forWebView:webview];
+//        [APIClient testConnection:urlRequest forWebView:webview];
 }
 
 + (void)loadTheCalendarFeedWithWebView:(UIWebView *)webview {

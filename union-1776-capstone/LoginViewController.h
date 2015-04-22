@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 @interface LoginViewController : UIViewController <UIWebViewDelegate, AppDelegateDelegate>
-
+@property (strong, nonatomic) AppDelegate *appDelegate;
 -(void)reloadWebView;
 
 @end
