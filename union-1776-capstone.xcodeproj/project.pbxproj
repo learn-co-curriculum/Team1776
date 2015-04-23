@@ -722,7 +722,7 @@
 				INFOPLIST_FILE = "union-1776-capstone/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b7b2eae1-2d14-4554-907f-81b55571c9c0";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -740,7 +740,7 @@
 				INFOPLIST_FILE = "union-1776-capstone/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b7b2eae1-2d14-4554-907f-81b55571c9c0";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

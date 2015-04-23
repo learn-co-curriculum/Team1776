@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSDictionary *user1776;
 @property (strong, nonatomic) NSString *cookieValue;
 @property (strong, nonatomic) NSString *cookieValueSecure;
-
+@property (nonatomic) BOOL notificationReceived;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *UIBack;
 
@@ -45,6 +45,11 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNotificationReceived) name:@"pushNotification" object:nil];
+
+    self.notificationReceived = NO;
+
     NSLog(@"viewdidLoadWasCalled");
 
     
@@ -53,10 +58,16 @@
     
     [self setUpOurInitialView];
     
-    [self requestTheDefaulLoginScreen];
     
+    if ([UnionDataStore sharedDataStore].notificationDictionary) {
+        
+        [self pushNotificationReceived];
+
+        
+    } else {
+        [self requestTheDefaulLoginScreen];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNotificationReceived) name:@"pushNotification" object:nil];
+    }
     
     if ([self isLoggedIn]) {
         [self unHideTheTabBar];
@@ -70,7 +81,9 @@
 
 - (void) pushNotificationReceived {
     
-    [APIClient loadTheFeedWithNotification:[UnionDataStore sharedDataStore].notificationDictionary withWebView:self.webView];
+    self.notificationReceived = YES;
+        [APIClient loadTheFeedWithNotification:[UnionDataStore sharedDataStore].notificationDictionary withWebView:self.webView];
+        
 }
 
 - (void)requestTheDefaulLoginScreen {

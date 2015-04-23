@@ -59,17 +59,17 @@
     
     NSURLRequest *urlRequest = [[NSURLRequest alloc] init];
     
-    if ([[notification allKeys] containsObject:@"feedItemId"]) {
+    if (notification[@"aps"][@"feedItemId"]) {
         
         urlRequest = [APIClient getURLWithFeedItemIdfromNotification:notification];
         NSLog(@"we are trying to load a different URL");
         NSLog(@"%@", notification);
         
-    } else if ([[notification allKeys] containsObject:@"tags"])
+    } else if (notification[@"aps"][@"tags"])
         
         urlRequest = [APIClient getURLWithTagsfromNotification:notification];
     
-      else if ([[notification allKeys] containsObject:@"type"]) {
+      else if (notification[@"aps"][@"type"]) {
         
         urlRequest = [APIClient getURLWithTypefromNotification:notification];
         

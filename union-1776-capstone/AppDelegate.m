@@ -22,6 +22,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+
+    
     /*
      When handing off to Yuri, use line below to set the Application ID
      
@@ -35,16 +37,17 @@
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                     UIUserNotificationTypeBadge |
                                                     UIUserNotificationTypeSound);
-
+    
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
+    
     NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
-    [UnionDataStore sharedDataStore].notificationDictionary = notificationPayload;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:notificationPayload];
- 
 
+    [self handleNotification:notificationPayload];
+  
+    
     // TRACKING PUSHES AND APP OPENS
             // When launched
     if (application.applicationState != UIApplicationStateBackground) {
@@ -67,11 +70,14 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [self handleNotification:userInfo];
+}
+
+- (void) handleNotification:(NSDictionary *)parseNotifications {
     
-    NSLog(@"received notification");
-    [PFPush handlePush:userInfo];
-    [UnionDataStore sharedDataStore].notificationDictionary = userInfo;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
+    [PFPush handlePush:parseNotifications];
+    [UnionDataStore sharedDataStore].notificationDictionary = parseNotifications;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:parseNotifications];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
