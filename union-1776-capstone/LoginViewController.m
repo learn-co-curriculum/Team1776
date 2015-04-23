@@ -23,7 +23,6 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *UIBack;
 
-
 - (void) requestTheDefaulLoginScreen;
 
 - (void) setUpOurInitialView;
@@ -47,43 +46,36 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNotificationReceived) name:@"pushNotification" object:nil];
-
-    self.notificationReceived = NO;
-
-    NSLog(@"viewdidLoadWasCalled");
-
     
     self.UIBack.enabled = NO;
     [self.UIBack setTintColor:[UIColor clearColor]];
     
     [self setUpOurInitialView];
     
-    
+    //This is here for when a notifcation is sent when the APP is not active (closed)
     if ([UnionDataStore sharedDataStore].notificationDictionary) {
         
         [self pushNotificationReceived];
-
         
     } else {
+        
         [self requestTheDefaulLoginScreen];
-    
     }
+    
     
     if ([self isLoggedIn]) {
+        
         [self unHideTheTabBar];
-    } else
-    {
+    } else {
+        
         [self hideTheTabBar];
     }
-    
 }
 
 
 - (void) pushNotificationReceived {
     
-    self.notificationReceived = YES;
-        [APIClient loadTheFeedWithNotification:[UnionDataStore sharedDataStore].notificationDictionary withWebView:self.webView];
-        
+    [APIClient loadTheFeedWithNotification:[UnionDataStore sharedDataStore].notificationDictionary withWebView:self.webView];
 }
 
 - (void)requestTheDefaulLoginScreen {
@@ -115,7 +107,7 @@
     
     //To store the DeviceID and store it into keychain
     [KeychainHelper storeDeviceIDintoPhone:[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
-
+    
     if ([self isLoggedIn] ) {
         [self unHideTheTabBar];
     }
@@ -165,8 +157,8 @@
     NSString *urlString = currentURL.absoluteString;
     
     return [urlString isEqualToString:DEFAULT_LOGIN_SCREEN_OR_FEED] ||
-           [urlString isEqualToString:[NSString stringWithFormat:@"%@%@",DEFAULT_LOGIN_SCREEN_OR_FEED,@"#"]] ||
-           [urlString isEqualToString:DEFAULT_LOGIN_SCREEN];
+    [urlString isEqualToString:[NSString stringWithFormat:@"%@%@",DEFAULT_LOGIN_SCREEN_OR_FEED,@"#"]] ||
+    [urlString isEqualToString:DEFAULT_LOGIN_SCREEN];
 }
 
 - (void)fetchCookieFromWebView {
@@ -227,80 +219,5 @@
 {
     return self.cookieValue != nil;
 }
-
-- (void) hideTabBar:(UITabBarController *) tabbarcontroller {
-    
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.5];
-    
-    float fHeight = screenRect.size.height;
-    
-    if(  UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) ) {
-        fHeight = screenRect.size.width;
-    }
-    
-    for (UIView *view in tabbarcontroller.view.subviews) {
-        
-        if([view isKindOfClass:[UITabBar class]]) {
-            [view setFrame:CGRectMake(view.frame.origin.x, fHeight, view.frame.size.width, view.frame.size.height)];
-            
-        } else {
-            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, fHeight)];
-            view.backgroundColor = [UIColor blackColor];
-        }
-    }
-    
-    [UIView commitAnimations];
-}
-
-
-
-- (void) showTabBar:(UITabBarController *) tabbarcontroller {
-    
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    
-    float fHeight = screenRect.size.height - tabbarcontroller.tabBar.frame.size.height;
-    
-    if(  UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) ) {
-        fHeight = screenRect.size.width - tabbarcontroller.tabBar.frame.size.height;
-    }
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.5];
-    
-    for (UIView *view in tabbarcontroller.view.subviews) {
-        
-        if([view isKindOfClass:[UITabBar class]]) {
-            [view setFrame:CGRectMake(view.frame.origin.x, fHeight, view.frame.size.width, view.frame.size.height)];
-            
-        } else {
-            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, fHeight)];
-        }
-    }
-    [UIView commitAnimations];
-}
-
-- (void)setHideTabBar:(BOOL)hide animated:(BOOL)animated {
-    
-    UIViewController *selectedViewController = self.tabBarController;
-    
-    if ([selectedViewController isKindOfClass:[UINavigationController class]])
-        selectedViewController = ((UINavigationController *)selectedViewController).visibleViewController;
-    __weak __typeof(self) weakSelf = self;
-    
-    void (^animations)(void) = ^{
-        selectedViewController.edgesForExtendedLayout = UIRectEdgeAll;
-        [selectedViewController setExtendedLayoutIncludesOpaqueBars:hide];
-        weakSelf.navigationController.tabBarController.tabBar.hidden = hide;
-        [selectedViewController.navigationController.view layoutSubviews];
-    };
-    
-    [UIView animateWithDuration:animated ? UINavigationControllerHideShowBarDuration : 1 animations:animations];
-}
-
-
-
 
 @end

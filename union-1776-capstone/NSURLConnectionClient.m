@@ -34,10 +34,8 @@
 
 - (void)testConnection {
     
+    //This is OK, this shouldn't be removed.  You can customize the progressHud here if you want with HUD properties
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.webView animated:YES];
-    hud.mode = MBProgressHUDModeAnnularDeterminate;
-    hud.labelText = @"Loading";
-    
     [[NSURLConnection alloc] initWithRequest:self.urlRequest delegate:self];
 }
 
