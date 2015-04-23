@@ -68,6 +68,7 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
+    
     NSLog(@"received notification");
     [PFPush handlePush:userInfo];
     [UnionDataStore sharedDataStore].notificationDictionary = userInfo;

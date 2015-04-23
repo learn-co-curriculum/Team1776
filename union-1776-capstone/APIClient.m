@@ -11,6 +11,13 @@
 
 @implementation APIClient
 
+// http://dev.1776union.io/union/feed/get?type=item&feedItemId=4b421662-e196-11e4-bf54-06867e4d05a8
+
+// http://dev.1776union.io/union/feed/get?type=tags&tags=Health~Event
+
+// http://dev.1776union.io/union/feed/get?type=challengeFestivalEvents
+
+
 + (NSURLRequest *)getURLWithFeedItemIdfromNotification:(NSDictionary *)notification {
     
     NSString *urlWithNotifications = [NSString stringWithFormat:@"http://dev.1776union.io/union/feed/get?type=%@&feedItemId=%@", notification[@"aps"][@"type"], notification[@"aps"][@"feedItemId"]];
